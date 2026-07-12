@@ -1,0 +1,22 @@
+﻿C:\Users\sanjeevi\Downloads\Fintech\ApiTestRunner\ApiTestRunner.csproj : warning NU1510: PackageReference System.Text.Json will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.
+C:\Users\sanjeevi\Downloads\Fintech\ApiTestRunner\ApiTestRunner.csproj : warning NU1510: PackageReference System.Text.Json will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.
+Executing System Integrity Auto-Test across Swagger endpoints...
+[PASS] /api/v1/Audit/recent               
+[PASS] /api/v1/Branch                     
+[FAIL] /api/v1/Branch/search               | BadRequest | {"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or more validation errors occurred.","status":400,"errors":{"query":["The query field is required."]},"traceId":"00-e4643babbf7a0b75dc32326300acca33-82e48174f7285d7e-00"}
+[FAIL] /api/v1/Customers                   | InternalServerError | {"statusCode":500,"error":"INTERNAL_ERROR","message":"The input data is not a complete block."}
+[PASS] /api/v1/Installments/due           
+[PASS] /api/Journal/entries               
+[PASS] /api/Ledger/trial-balance          
+[PASS] /api/Ledger/pnl                    
+[PASS] /api/v1/LoanCases                  
+[PASS] /api/v1/Partners                   
+[FAIL] /api/v1/Product/active              | InternalServerError | {"statusCode":500,"error":"INTERNAL_ERROR","message":"42703: column l.repayment_frequency does not exist\r\n\r\nPOSITION: 98"}
+[PASS] /api/Recovery/overdue              
+[PASS] /api/v1/Report/par                 
+[PASS] /api/v1/Report/efficiency          
+[PASS] /api/v1/Report/dashboard-stats     
+[PASS] /api/v1/Users                      
+[PASS] /WeatherForecast                   
+
+Completed verification. 14 Clean, 3 500s/Errors remaining.

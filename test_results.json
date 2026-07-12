@@ -1,0 +1,1094 @@
+﻿[
+    {
+        "TestId":  "TS_API_001",
+        "Endpoint":  "POST /api/v1/auth/login",
+        "Description":  "Verify login with valid credentials returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "token":  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyMjIyMjIyMi0yMjIyLTIyMjItMjIyMi0yMjIyMjIyMjIyMjEiLCJCcmFuY2hJZCI6IjExMTExMTExLTExMTEtMTExMS0xMTExLTExMTExMTExMTExMSIsInJvbGUiOiJzdXBlcl9hZG1pbiIsIm5iZiI6MTc4MjY1OTAyMiwiZXhwIjoxNzgzMjYzODIyLCJpYXQiOjE3ODI2NTkwMjJ9.DR6C2BeGYMiAFWMYxe3BFb5tCrmhQ0EW9ai9v89lGWg",
+                         "email":  "super_admin@finveda.com",
+                         "name":  "Super Admin User",
+                         "role":  "super_admin"
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:42"
+    },
+    {
+        "TestId":  "TS_API_006",
+        "Endpoint":  "POST /api/v1/auth/register",
+        "Description":  "Verify register with valid data returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "id":  "47315a7e-341a-439c-a514-a5e908a3cb61",
+                         "message":  "User registered successfully"
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:43"
+    },
+    {
+        "TestId":  "TS_API_015",
+        "Endpoint":  "GET /api/v1/branch",
+        "Description":  "Verify get all branches returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "value":  [
+                                       {
+                                           "id":  "11111111-1111-1111-1111-111111111111",
+                                           "name":  "FinVeda Main Office",
+                                           "city":  "Mumbai",
+                                           "isActive":  true,
+                                           "settingsJson":  "{}",
+                                           "branchCode":  "BR0001"
+                                       }
+                                   ],
+                         "Count":  1
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:44"
+    },
+    {
+        "TestId":  "TS_API_019",
+        "Endpoint":  "POST /api/v1/branch",
+        "Description":  "Verify create branch returns 201",
+        "ExpectedStatus":  201,
+        "ActualStatus":  200,
+        "Response":  {
+                         "id":  "939dc46e-9cea-4eae-b27f-9e114f59a526",
+                         "name":  "Test Branch 1782659024",
+                         "city":  "Delhi",
+                         "isActive":  true,
+                         "settingsJson":  "{}",
+                         "branchCode":  "BR0002"
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:44"
+    },
+    {
+        "TestId":  "TS_API_016",
+        "Endpoint":  "GET /api/v1/branch/939dc46e-9cea-4eae-b27f-9e114f59a526",
+        "Description":  "Verify get branch by ID returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "id":  "939dc46e-9cea-4eae-b27f-9e114f59a526",
+                         "name":  "Test Branch 1782659024",
+                         "city":  "Delhi",
+                         "isActive":  true,
+                         "settingsJson":  "{}",
+                         "branchCode":  "BR0002"
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:44"
+    },
+    {
+        "TestId":  "TS_API_027",
+        "Endpoint":  "GET /api/v1/users",
+        "Description":  "Verify get all users returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "value":  [
+                                       {
+                                           "id":  "22222222-2222-2222-2222-222222222221",
+                                           "code":  "USR0001",
+                                           "name":  "Super Admin User",
+                                           "email":  "super_admin@finveda.com",
+                                           "role":  "super_admin",
+                                           "isActive":  true
+                                       },
+                                       {
+                                           "id":  "22222222-2222-2222-2222-222222222222",
+                                           "code":  "USR0002",
+                                           "name":  "Branch Manager User",
+                                           "email":  "branch_manager@finveda.com",
+                                           "role":  "branch_manager",
+                                           "isActive":  true
+                                       },
+                                       {
+                                           "id":  "22222222-2222-2222-2222-222222222223",
+                                           "code":  "USR0003",
+                                           "name":  "Partner User",
+                                           "email":  "partner@finveda.com",
+                                           "role":  "partner",
+                                           "isActive":  true
+                                       },
+                                       {
+                                           "id":  "22222222-2222-2222-2222-222222222224",
+                                           "code":  "USR0004",
+                                           "name":  "Accountant User",
+                                           "email":  "accountant@finveda.com",
+                                           "role":  "accountant",
+                                           "isActive":  true
+                                       },
+                                       {
+                                           "id":  "22222222-2222-2222-2222-222222222225",
+                                           "code":  "USR0005",
+                                           "name":  "Collection Officer User",
+                                           "email":  "collection_officer@finveda.com",
+                                           "role":  "collection_officer",
+                                           "isActive":  true
+                                       },
+                                       {
+                                           "id":  "22222222-2222-2222-2222-222222222226",
+                                           "code":  "USR0006",
+                                           "name":  "Recovery Specialist User",
+                                           "email":  "recovery_specialist@finveda.com",
+                                           "role":  "recovery_specialist",
+                                           "isActive":  true
+                                       },
+                                       {
+                                           "id":  "22222222-2222-2222-2222-222222222227",
+                                           "code":  "USR0007",
+                                           "name":  "Loan Officer User",
+                                           "email":  "loan_officer@finveda.com",
+                                           "role":  "loan_officer",
+                                           "isActive":  true
+                                       },
+                                       {
+                                           "id":  "22222222-2222-2222-2222-222222222228",
+                                           "code":  "USR0008",
+                                           "name":  "Customer User",
+                                           "email":  "customer@finveda.com",
+                                           "role":  "customer",
+                                           "isActive":  true
+                                       },
+                                       {
+                                           "id":  "22222222-2222-2222-2222-222222222229",
+                                           "code":  "USR0009",
+                                           "name":  "Agent User",
+                                           "email":  "agent@finveda.com",
+                                           "role":  "agent",
+                                           "isActive":  true
+                                       }
+                                   ],
+                         "Count":  9
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:45"
+    },
+    {
+        "TestId":  "TS_API_030",
+        "Endpoint":  "POST /api/v1/users",
+        "Description":  "Verify create user returns 201",
+        "ExpectedStatus":  201,
+        "ActualStatus":  200,
+        "Response":  {
+                         "id":  "a046307b-238b-4afd-af9b-d2da9b1a028e",
+                         "code":  "USR0010",
+                         "name":  "Jane Smith",
+                         "email":  "jane.smith.1782659025@fintech.com",
+                         "role":  "loan_officer",
+                         "isActive":  true
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:45"
+    },
+    {
+        "TestId":  "TS_API_028",
+        "Endpoint":  "GET /api/v1/users/a046307b-238b-4afd-af9b-d2da9b1a028e",
+        "Description":  "Verify get user by ID returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "id":  "a046307b-238b-4afd-af9b-d2da9b1a028e",
+                         "code":  "USR0010",
+                         "name":  "Jane Smith",
+                         "email":  "jane.smith.1782659025@fintech.com",
+                         "role":  "loan_officer",
+                         "isActive":  true
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:45"
+    },
+    {
+        "TestId":  "TS_API_034",
+        "Endpoint":  "GET /api/v1/customers",
+        "Description":  "Verify get all customers returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "value":  [
+                                       {
+                                           "id":  "44444444-4444-4444-4444-444444444441",
+                                           "code":  "CUS0001",
+                                           "name":  "Amit Sharma",
+                                           "phone":  "9876543210",
+                                           "aadhaar":  "***********D123",
+                                           "pan":  "************N123"
+                                       },
+                                       {
+                                           "id":  "44444444-4444-4444-4444-444444444442",
+                                           "code":  "CUS0002",
+                                           "name":  "Meera Patel",
+                                           "phone":  "9876543211",
+                                           "aadhaar":  "***********D456",
+                                           "pan":  "************N456"
+                                       }
+                                   ],
+                         "Count":  2
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:45"
+    },
+    {
+        "TestId":  "TS_API_037",
+        "Endpoint":  "POST /api/v1/customers",
+        "Description":  "Verify create customer returns 201",
+        "ExpectedStatus":  201,
+        "ActualStatus":  200,
+        "Response":  {
+                         "id":  "09b74737-85a7-4f34-8587-145a36a23596",
+                         "code":  "CUS0003",
+                         "name":  "Priya Sharma",
+                         "phone":  "",
+                         "aadhaar":  "********9012",
+                         "pan":  "******234F"
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:45"
+    },
+    {
+        "TestId":  "TS_API_035",
+        "Endpoint":  "GET /api/v1/customers/09b74737-85a7-4f34-8587-145a36a23596",
+        "Description":  "Verify get customer by ID returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "id":  "09b74737-85a7-4f34-8587-145a36a23596",
+                         "code":  "CUS0003",
+                         "name":  "Priya Sharma",
+                         "phone":  "",
+                         "aadhaar":  "********9012",
+                         "pan":  "******234F"
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:45"
+    },
+    {
+        "TestId":  "TS_API_042",
+        "Endpoint":  "GET /api/v1/loancases",
+        "Description":  "Verify get all loan cases returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "value":  [
+                                       {
+                                           "id":  "88888888-8888-8888-8888-888888888881",
+                                           "loanCode":  "LN00001",
+                                           "customerCode":  "CUS0001",
+                                           "customerId":  "44444444-4444-4444-4444-444444444441",
+                                           "customerName":  "Amit Sharma",
+                                           "principal":  5000000,
+                                           "interestAmount":  600000,
+                                           "totalReceivable":  5600000,
+                                           "processingFees":  50000,
+                                           "status":  "active",
+                                           "submittedById":  null,
+                                           "submittedAt":  null,
+                                           "approvedById":  null,
+                                           "approvedAt":  null,
+                                           "rejectionReason":  null,
+                                           "documentUrls":  null
+                                       }
+                                   ],
+                         "Count":  1
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:45"
+    },
+    {
+        "TestId":  "TS_API_045",
+        "Endpoint":  "POST /api/v1/loancases",
+        "Description":  "Verify create loan case returns 201",
+        "ExpectedStatus":  201,
+        "ActualStatus":  200,
+        "Response":  {
+                         "id":  "cb1721cd-4077-4845-b7ff-d70ae8ccb6a9",
+                         "loanCode":  "LN0002",
+                         "customerCode":  null,
+                         "customerId":  "09b74737-85a7-4f34-8587-145a36a23596",
+                         "customerName":  "",
+                         "principal":  10000000,
+                         "interestAmount":  2000000,
+                         "totalReceivable":  12000000,
+                         "processingFees":  100000,
+                         "status":  "draft",
+                         "submittedById":  null,
+                         "submittedAt":  null,
+                         "approvedById":  null,
+                         "approvedAt":  null,
+                         "rejectionReason":  null,
+                         "documentUrls":  null
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:46"
+    },
+    {
+        "TestId":  "TS_API_043",
+        "Endpoint":  "GET /api/v1/loancases/cb1721cd-4077-4845-b7ff-d70ae8ccb6a9",
+        "Description":  "Verify get loan case by ID returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "id":  "cb1721cd-4077-4845-b7ff-d70ae8ccb6a9",
+                         "loanCode":  "LN0002",
+                         "customerCode":  "CUS0003",
+                         "customerId":  "09b74737-85a7-4f34-8587-145a36a23596",
+                         "customerName":  "Priya Sharma",
+                         "principal":  10000000,
+                         "interestAmount":  2000000,
+                         "totalReceivable":  12000000,
+                         "processingFees":  100000,
+                         "status":  "draft",
+                         "submittedById":  null,
+                         "submittedAt":  null,
+                         "approvedById":  null,
+                         "approvedAt":  null,
+                         "rejectionReason":  null,
+                         "documentUrls":  null
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:46"
+    },
+    {
+        "TestId":  "TS_API_066",
+        "Endpoint":  "GET /api/v1/partners",
+        "Description":  "Verify get all partners returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "value":  [
+                                       {
+                                           "id":  "66666666-6666-6666-6666-666666666661",
+                                           "code":  "PAR0001",
+                                           "userId":  "22222222-2222-2222-2222-222222222223",
+                                           "equityPct":  25,
+                                           "name":  "Partner User",
+                                           "email":  "partner@finveda.com",
+                                           "phone":  "",
+                                           "isActive":  true
+                                       }
+                                   ],
+                         "Count":  1
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:46"
+    },
+    {
+        "TestId":  "TS_API_069",
+        "Endpoint":  "POST /api/v1/partners",
+        "Description":  "Verify create partner returns 201",
+        "ExpectedStatus":  201,
+        "ActualStatus":  200,
+        "Response":  {
+                         "id":  "c6089f0a-1570-4eca-a884-7cb16873740d",
+                         "code":  "PAR0002",
+                         "userId":  "a046307b-238b-4afd-af9b-d2da9b1a028e",
+                         "equityPct":  25,
+                         "name":  "Jane Smith",
+                         "email":  "jane.smith.1782659025@fintech.com",
+                         "phone":  "",
+                         "isActive":  true
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:46"
+    },
+    {
+        "TestId":  "TS_API_067",
+        "Endpoint":  "GET /api/v1/partners/c6089f0a-1570-4eca-a884-7cb16873740d",
+        "Description":  "Verify get partner by ID returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "id":  "c6089f0a-1570-4eca-a884-7cb16873740d",
+                         "code":  "PAR0002",
+                         "userId":  "a046307b-238b-4afd-af9b-d2da9b1a028e",
+                         "equityPct":  25,
+                         "name":  "Jane Smith",
+                         "email":  "jane.smith.1782659025@fintech.com",
+                         "phone":  "",
+                         "isActive":  true
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:46"
+    },
+    {
+        "TestId":  "TS_API_074",
+        "Endpoint":  "POST /api/v1/capitalaccounts/investment",
+        "Description":  "Verify add investment returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  404,
+        "Response":  {
+                         "success":  false,
+                         "message":  "Bank GL account (GL-1000) not found"
+                     },
+        "Passed":  false,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:46"
+    },
+    {
+        "TestId":  "TS_API_081",
+        "Endpoint":  "GET /api/v1/capitalaccounts/summary/c6089f0a-1570-4eca-a884-7cb16873740d",
+        "Description":  "Verify get capital summary returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "partnerId":  "c6089f0a-1570-4eca-a884-7cb16873740d",
+                         "partnerCode":  "PAR0002",
+                         "partnerName":  "Jane Smith",
+                         "totalInvestment":  50000000,
+                         "totalProfit":  0,
+                         "totalWithdrawal":  0,
+                         "currentBalance":  50000000
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:46"
+    },
+    {
+        "TestId":  "TS_API_083",
+        "Endpoint":  "GET /api/v1/product/active",
+        "Description":  "Verify get active products returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "value":  [
+                                       {
+                                           "id":  "55555555-5555-5555-5555-555555555551",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "name":  "Personal Loan",
+                                           "code":  "LP0001",
+                                           "interestRate":  12,
+                                           "defaultTenureMonths":  12,
+                                           "repaymentFrequency":  0,
+                                           "isActive":  true
+                                       },
+                                       {
+                                           "id":  "55555555-5555-5555-5555-555555555552",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "name":  "Biz Loan",
+                                           "code":  "LP0002",
+                                           "interestRate":  18,
+                                           "defaultTenureMonths":  24,
+                                           "repaymentFrequency":  1,
+                                           "isActive":  true
+                                       }
+                                   ],
+                         "Count":  2
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:46"
+    },
+    {
+        "TestId":  "TS_API_091",
+        "Endpoint":  "GET /api/v1/report/par",
+        "Description":  "Verify get PAR report returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "message":  "PAR Report Data"
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:47"
+    },
+    {
+        "TestId":  "TS_API_092",
+        "Endpoint":  "GET /api/v1/report/par",
+        "Description":  "Verify get PAR report without dates returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "message":  "PAR Report Data"
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:47"
+    },
+    {
+        "TestId":  "TS_API_093",
+        "Endpoint":  "GET /api/v1/report/efficiency",
+        "Description":  "Verify get collection efficiency returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "message":  "Efficiency Report Data"
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:47"
+    },
+    {
+        "TestId":  "TS_API_095",
+        "Endpoint":  "GET /api/v1/report/dashboard-stats",
+        "Description":  "Verify get dashboard stats returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "aum":  17600000,
+                         "totalLoans":  2,
+                         "activeLoans":  2,
+                         "par30":  3.5,
+                         "interestIncomeMTD":  0,
+                         "expensesMTD":  0,
+                         "netProfitMTD":  0,
+                         "collectedToday":  0,
+                         "aumTrend":  [
+                                          {
+                                              "month":  "Jan",
+                                              "aum":  15840000
+                                          },
+                                          {
+                                              "month":  "Feb",
+                                              "aum":  16720000
+                                          },
+                                          {
+                                              "month":  "Mar",
+                                              "aum":  17600000
+                                          }
+                                      ],
+                         "branchPerformance":  [
+                                                   {
+                                                       "branch":  "FinVeda Main Office",
+                                                       "aum":  17600000,
+                                                       "loans":  2,
+                                                       "collection":  95.5,
+                                                       "par":  2.1
+                                                   }
+                                               ]
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:47"
+    },
+    {
+        "TestId":  "TS_API_097",
+        "Endpoint":  "GET /api/v1/audit/LoanCase/cb1721cd-4077-4845-b7ff-d70ae8ccb6a9",
+        "Description":  "Verify get entity history returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "value":  [
+
+                                   ],
+                         "Count":  0
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:47"
+    },
+    {
+        "TestId":  "TS_API_099",
+        "Endpoint":  "GET /api/v1/audit/recent",
+        "Description":  "Verify get recent logs returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "value":  [
+                                       {
+                                           "id":  "73ce1717-82d3-4a84-a0e6-12e4ebe0d0f9",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "capital_transactions",
+                                           "recordId":  "1ed61793-9a4c-4870-80a0-c35d2803e283",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"1ed61793-9a4c-4870-80a0-c35d2803e283\",\"TransactionCode\":\"CAPTX0002\",\"CapitalAccountId\":\"bbf92244-0adc-4bf4-b226-5be2a5c5c7fa\",\"CapitalAccount\":null,\"TransactionType\":\"Contribution\",\"Amount\":50000000,\"TransactionDate\":\"2026-06-28T15:03:46.511336Z\",\"Description\":\"Capital Contribution (Investment)\",\"ReferenceNumber\":\"cash\",\"Status\":\"Pending\",\"ApprovedBy\":null,\"ApprovedAt\":null,\"CreatedBy\":\"22222222-2222-2222-2222-222222222221\",\"CreatedAt\":\"2026-06-28T15:03:46.5121622Z\",\"LastModifiedBy\":null,\"LastModifiedAt\":null,\"ApprovedByUser\":null,\"CreatedByUser\":null,\"JournalEntries\":[]}",
+                                           "timestamp":  "2026-06-28T15:03:46.585434Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "02c38630-13c7-4e44-a8fe-de856d1b9c2b",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "e1111111-1111-1111-1111-111111111124",
+                                           "action":  "Modified",
+                                           "beforeVal":  "{\"Id\":\"e1111111-1111-1111-1111-111111111124\",\"EntityName\":\"CapitalTransaction\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"NextSequenceNumber\":2,\"CodePrefix\":\"CAPTX\",\"CreatedAt\":\"2026-06-28T15:03:24.737233Z\",\"UpdatedAt\":\"2026-06-28T15:03:24.737233Z\"}",
+                                           "afterVal":  "{\"Id\":\"e1111111-1111-1111-1111-111111111124\",\"EntityName\":\"CapitalTransaction\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"NextSequenceNumber\":3,\"CodePrefix\":\"CAPTX\",\"CreatedAt\":\"2026-06-28T15:03:24.737233Z\",\"UpdatedAt\":\"2026-06-28T15:03:46.5024617Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:46.503205Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "7875a932-b54a-46f7-b9c5-4d9c7fe9596b",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "capital_accounts",
+                                           "recordId":  "bbf92244-0adc-4bf4-b226-5be2a5c5c7fa",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"bbf92244-0adc-4bf4-b226-5be2a5c5c7fa\",\"CapitalAccountCode\":\"CAP0002\",\"PartnerId\":\"c6089f0a-1570-4eca-a884-7cb16873740d\",\"Partner\":null,\"OpeningBalance\":50000000,\"CurrentBalance\":50000000,\"OwnershipPercentage\":0,\"Status\":\"Active\",\"Currency\":\"INR\",\"CreatedBy\":\"22222222-2222-2222-2222-222222222221\",\"CreatedAt\":\"2026-06-28T15:03:46.3821934Z\",\"LastModifiedBy\":null,\"LastModifiedAt\":null,\"Transactions\":[],\"History\":[]}",
+                                           "timestamp":  "2026-06-28T15:03:46.469436Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "f8fa985a-e66a-4d84-bfb0-857b65241c9b",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "e1111111-1111-1111-1111-111111111117",
+                                           "action":  "Modified",
+                                           "beforeVal":  "{\"Id\":\"e1111111-1111-1111-1111-111111111117\",\"EntityName\":\"CapitalAccount\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"NextSequenceNumber\":2,\"CodePrefix\":\"CAP\",\"CreatedAt\":\"2026-06-28T15:03:24.737233Z\",\"UpdatedAt\":\"2026-06-28T15:03:24.737233Z\"}",
+                                           "afterVal":  "{\"Id\":\"e1111111-1111-1111-1111-111111111117\",\"EntityName\":\"CapitalAccount\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"NextSequenceNumber\":3,\"CodePrefix\":\"CAP\",\"CreatedAt\":\"2026-06-28T15:03:24.737233Z\",\"UpdatedAt\":\"2026-06-28T15:03:46.3765574Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:46.377249Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "cf5eab75-5a77-4fd3-a80e-6a1bf4915444",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "partners",
+                                           "recordId":  "c6089f0a-1570-4eca-a884-7cb16873740d",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"c6089f0a-1570-4eca-a884-7cb16873740d\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"UserId\":\"a046307b-238b-4afd-af9b-d2da9b1a028e\",\"EquityPct\":25,\"IsActive\":true,\"User\":null,\"CapitalAccounts\":[],\"PartnerCode\":\"PAR0002\",\"Name\":\"\",\"Email\":\"\",\"Phone\":\"\"}",
+                                           "timestamp":  "2026-06-28T15:03:46.276442Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "991c6e29-518f-4ca5-ab09-1a82712a1885",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "e1111111-1111-1111-1111-111111111116",
+                                           "action":  "Modified",
+                                           "beforeVal":  "{\"Id\":\"e1111111-1111-1111-1111-111111111116\",\"EntityName\":\"Partner\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"NextSequenceNumber\":2,\"CodePrefix\":\"PAR\",\"CreatedAt\":\"2026-06-28T15:03:24.737233Z\",\"UpdatedAt\":\"2026-06-28T15:03:24.737233Z\"}",
+                                           "afterVal":  "{\"Id\":\"e1111111-1111-1111-1111-111111111116\",\"EntityName\":\"Partner\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"NextSequenceNumber\":3,\"CodePrefix\":\"PAR\",\"CreatedAt\":\"2026-06-28T15:03:24.737233Z\",\"UpdatedAt\":\"2026-06-28T15:03:46.2441004Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:46.244275Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "219d5f0b-ee72-449f-9731-4bf4514e2c32",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "loan_cases",
+                                           "recordId":  "cb1721cd-4077-4845-b7ff-d70ae8ccb6a9",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"cb1721cd-4077-4845-b7ff-d70ae8ccb6a9\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"CustomerId\":\"09b74737-85a7-4f34-8587-145a36a23596\",\"Customer\":null,\"LoanCode\":\"LN0002\",\"Principal\":10000000,\"InterestAmount\":2000000,\"TotalReceivable\":12000000,\"ProcessingFees\":100000,\"Status\":5,\"Version\":0,\"SubmittedById\":null,\"SubmittedAt\":null,\"ApprovedById\":null,\"ApprovedAt\":null,\"RejectionReason\":null,\"DocumentUrls\":null,\"Installments\":[]}",
+                                           "timestamp":  "2026-06-28T15:03:46.084435Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "9aaeaae7-571d-476d-9178-7e724672c8e3",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "e1111111-1111-1111-1111-111111111114",
+                                           "action":  "Modified",
+                                           "beforeVal":  "{\"Id\":\"e1111111-1111-1111-1111-111111111114\",\"EntityName\":\"LoanCase\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"NextSequenceNumber\":2,\"CodePrefix\":\"LN\",\"CreatedAt\":\"2026-06-28T15:03:24.737233Z\",\"UpdatedAt\":\"2026-06-28T15:03:24.737233Z\"}",
+                                           "afterVal":  "{\"Id\":\"e1111111-1111-1111-1111-111111111114\",\"EntityName\":\"LoanCase\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"NextSequenceNumber\":3,\"CodePrefix\":\"LN\",\"CreatedAt\":\"2026-06-28T15:03:24.737233Z\",\"UpdatedAt\":\"2026-06-28T15:03:45.9474922Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:45.947684Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "89507937-f46f-491f-8bb0-940a7c91ea6f",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "customers",
+                                           "recordId":  "09b74737-85a7-4f34-8587-145a36a23596",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"09b74737-85a7-4f34-8587-145a36a23596\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"Name\":\"Priya Sharma\",\"Phone\":\"\",\"IsActive\":true,\"Aadhaar_Encrypted\":\"123456789012\",\"PAN_Encrypted\":\"ABCDE1234F\",\"CustomerCode\":\"CUS0003\"}",
+                                           "timestamp":  "2026-06-28T15:03:45.639698Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "9dc748ee-a6c8-4980-be73-138f99d7497a",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "e1111111-1111-1111-1111-111111111113",
+                                           "action":  "Modified",
+                                           "beforeVal":  "{\"Id\":\"e1111111-1111-1111-1111-111111111113\",\"EntityName\":\"Customer\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"NextSequenceNumber\":3,\"CodePrefix\":\"CUS\",\"CreatedAt\":\"2026-06-28T15:03:24.737233Z\",\"UpdatedAt\":\"2026-06-28T15:03:24.737233Z\"}",
+                                           "afterVal":  "{\"Id\":\"e1111111-1111-1111-1111-111111111113\",\"EntityName\":\"Customer\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"NextSequenceNumber\":4,\"CodePrefix\":\"CUS\",\"CreatedAt\":\"2026-06-28T15:03:24.737233Z\",\"UpdatedAt\":\"2026-06-28T15:03:45.6144141Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:45.615089Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "ba52a22b-2534-4be8-914d-b4a79fd7461a",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "users",
+                                           "recordId":  "a046307b-238b-4afd-af9b-d2da9b1a028e",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"a046307b-238b-4afd-af9b-d2da9b1a028e\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"Name\":\"Jane Smith\",\"Email\":\"jane.smith.1782659025@fintech.com\",\"PasswordHash\":\"$2a$11$HpCt4/Wx66/mOhOjh6UX5uEEyI7TZiYphn9NTMfyk92j.C3nHTWfi\",\"Role\":\"loan_officer\",\"IsActive\":true,\"TotpEnabled\":false,\"RefreshToken\":\"\",\"UserCode\":\"USR0010\"}",
+                                           "timestamp":  "2026-06-28T15:03:45.460931Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "b57d035b-f481-4989-af64-75eefe805bea",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "e1111111-1111-1111-1111-111111111112",
+                                           "action":  "Modified",
+                                           "beforeVal":  "{\"Id\":\"e1111111-1111-1111-1111-111111111112\",\"EntityName\":\"User\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"NextSequenceNumber\":10,\"CodePrefix\":\"USR\",\"CreatedAt\":\"2026-06-28T15:03:24.737233Z\",\"UpdatedAt\":\"2026-06-28T15:03:24.737233Z\"}",
+                                           "afterVal":  "{\"Id\":\"e1111111-1111-1111-1111-111111111112\",\"EntityName\":\"User\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"NextSequenceNumber\":11,\"CodePrefix\":\"USR\",\"CreatedAt\":\"2026-06-28T15:03:24.737233Z\",\"UpdatedAt\":\"2026-06-28T15:03:45.1690931Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:45.16928Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "540eb3c3-f456-48de-9a70-1d770e15c986",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "2e6d720a-2cce-4795-b904-c41206e0fffa",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"2e6d720a-2cce-4795-b904-c41206e0fffa\",\"EntityName\":\"CapitalTransaction\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"CAPTX\",\"CreatedAt\":\"2026-06-28T15:03:44.7889353Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.7889354Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.790213Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "a1c35530-dbbf-4835-bd7c-e93317b2ce75",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "1fc2965a-2360-413b-bf53-bf6b8f8d7393",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"1fc2965a-2360-413b-bf53-bf6b8f8d7393\",\"EntityName\":\"CollectionRequest\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"COLREQ\",\"CreatedAt\":\"2026-06-28T15:03:44.7889237Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.7889237Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.790192Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "43a07a33-4dbe-442b-b4b9-c9d0c50399b5",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "9ebc2d0f-cf06-4cb3-bb35-bb8e5767cad0",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"9ebc2d0f-cf06-4cb3-bb35-bb8e5767cad0\",\"EntityName\":\"AuditLog\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"AUD\",\"CreatedAt\":\"2026-06-28T15:03:44.7889124Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.7889124Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.790161Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "c220b667-b62a-406d-a9f6-2fb88d5e8e24",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "e1adc437-b200-4006-8da6-af1b7e85c5c1",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"e1adc437-b200-4006-8da6-af1b7e85c5c1\",\"EntityName\":\"User\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"USR\",\"CreatedAt\":\"2026-06-28T15:03:44.7888776Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.7888776Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.790144Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "3e72648b-25fb-4934-9f97-b112e49a4f42",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "cb72c9cd-b51f-4016-a6c7-40ac497eb9d5",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"cb72c9cd-b51f-4016-a6c7-40ac497eb9d5\",\"EntityName\":\"Branch\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"BR\",\"CreatedAt\":\"2026-06-28T15:03:44.7888638Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.7888639Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.79013Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "7d7fee0a-bd23-4a54-8188-336c90f94697",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "e265ccbd-9400-4b7d-9730-34116cd61229",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"e265ccbd-9400-4b7d-9730-34116cd61229\",\"EntityName\":\"ProfitDistribution\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"PFT\",\"CreatedAt\":\"2026-06-28T15:03:44.788851Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.788851Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.790115Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "cd9113d8-2366-4a21-b25d-1c238ae5188c",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "0409e607-b31e-48e6-bb10-91bdfb7440b0",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"0409e607-b31e-48e6-bb10-91bdfb7440b0\",\"EntityName\":\"DayEnd\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"DE\",\"CreatedAt\":\"2026-06-28T15:03:44.7888389Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.788839Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.790086Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "8461fbb5-0c79-4243-a1ea-426ad9440c78",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "afd575fd-949f-47b0-bb7c-d3a55131a0c5",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"afd575fd-949f-47b0-bb7c-d3a55131a0c5\",\"EntityName\":\"Account\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"ACC\",\"CreatedAt\":\"2026-06-28T15:03:44.7888263Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.7888263Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.790067Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "99bb7f2b-82d2-461e-a32c-46d2118ec1fb",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "8c93c1ae-1c38-4198-b4ac-a47426e3a72d",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"8c93c1ae-1c38-4198-b4ac-a47426e3a72d\",\"EntityName\":\"JournalLine\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"JL\",\"CreatedAt\":\"2026-06-28T15:03:44.7888152Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.7888153Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.790022Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "e1bfb51f-27e0-4c1c-ab1d-ee1c952897c9",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "f02af078-0609-409d-a17f-ab3faac3c78d",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"f02af078-0609-409d-a17f-ab3faac3c78d\",\"EntityName\":\"JournalEntry\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"JE\",\"CreatedAt\":\"2026-06-28T15:03:44.7888008Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.7888009Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.790006Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "30b4f620-058a-4403-be9a-8396eb5bcf8c",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "d3134d70-4522-4d4a-857d-b2c2f837cea7",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"d3134d70-4522-4d4a-857d-b2c2f837cea7\",\"EntityName\":\"CapitalAccount\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"CAP\",\"CreatedAt\":\"2026-06-28T15:03:44.7887488Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.7887489Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.78999Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "aaf8111e-8a4e-4ccd-9e7a-7671c95c5111",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "887878e2-740d-408f-9c5f-f2ccd8466e3f",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"887878e2-740d-408f-9c5f-f2ccd8466e3f\",\"EntityName\":\"Partner\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"PAR\",\"CreatedAt\":\"2026-06-28T15:03:44.7886627Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.7886628Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.789976Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "6d0bd7c4-dfa7-45e3-9db5-80208dd5b844",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "ba905689-3921-42e3-afae-c9c2216e2e6b",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"ba905689-3921-42e3-afae-c9c2216e2e6b\",\"EntityName\":\"Receipt\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"RCP\",\"CreatedAt\":\"2026-06-28T15:03:44.7886385Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.7886386Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.78996Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "7413ad28-4426-4886-a48d-3a41c1ffd411",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "c8846175-24be-440f-874f-5f46c881a596",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"c8846175-24be-440f-874f-5f46c881a596\",\"EntityName\":\"Installment\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"INST\",\"CreatedAt\":\"2026-06-28T15:03:44.7886141Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.7886142Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.78992Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "2d7fe15e-1ed5-4a94-9576-adef9ae0d121",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "78c2e361-a3cd-4453-8d16-8bcd6753767e",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"78c2e361-a3cd-4453-8d16-8bcd6753767e\",\"EntityName\":\"LoanProduct\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"PRO\",\"CreatedAt\":\"2026-06-28T15:03:44.7884071Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.7884072Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.789899Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "ca3e1301-e5c5-4a83-91ae-3d02e1652569",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "0f14c891-5c93-405d-a550-132086736b26",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"0f14c891-5c93-405d-a550-132086736b26\",\"EntityName\":\"LoanCase\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"LN\",\"CreatedAt\":\"2026-06-28T15:03:44.7874322Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.7874323Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.789875Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "a2bb71bd-628d-4585-bc58-eaed5340de2e",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "0b63ca98-7ac4-43cb-a7dc-837d9363614c",
+                                           "action":  "Added",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"Id\":\"0b63ca98-7ac4-43cb-a7dc-837d9363614c\",\"EntityName\":\"Customer\",\"BranchId\":\"939dc46e-9cea-4eae-b27f-9e114f59a526\",\"NextSequenceNumber\":1,\"CodePrefix\":\"CUS\",\"CreatedAt\":\"2026-06-28T15:03:44.7818475Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.7818895Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.789852Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "9ff064b9-3b41-4093-9924-669965c8f527",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "code_sequences",
+                                           "recordId":  "e1111111-1111-1111-1111-111111111111",
+                                           "action":  "Modified",
+                                           "beforeVal":  "{\"Id\":\"e1111111-1111-1111-1111-111111111111\",\"EntityName\":\"Branch\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"NextSequenceNumber\":2,\"CodePrefix\":\"BR\",\"CreatedAt\":\"2026-06-28T15:03:24.737233Z\",\"UpdatedAt\":\"2026-06-28T15:03:24.737233Z\"}",
+                                           "afterVal":  "{\"Id\":\"e1111111-1111-1111-1111-111111111111\",\"EntityName\":\"Branch\",\"BranchId\":\"11111111-1111-1111-1111-111111111111\",\"NextSequenceNumber\":3,\"CodePrefix\":\"BR\",\"CreatedAt\":\"2026-06-28T15:03:24.737233Z\",\"UpdatedAt\":\"2026-06-28T15:03:44.4641457Z\"}",
+                                           "timestamp":  "2026-06-28T15:03:44.530473Z",
+                                           "auditLogCode":  null
+                                       },
+                                       {
+                                           "id":  "dddddddd-dddd-dddd-dddd-ddddddddddd1",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "tableName":  "branches",
+                                           "recordId":  "11111111-1111-1111-1111-111111111111",
+                                           "action":  "INSERT",
+                                           "beforeVal":  "{}",
+                                           "afterVal":  "{\"name\": \"Initial Setup\"}",
+                                           "timestamp":  "2026-06-28T15:03:24.729268Z",
+                                           "auditLogCode":  "AUD0001"
+                                       }
+                                   ],
+                         "Count":  31
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:47"
+    },
+    {
+        "TestId":  "TS_API_102",
+        "Endpoint":  "GET /api/recovery/overdue",
+        "Description":  "Verify get overdue loans returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "value":  [
+                                       {
+                                           "id":  "88888888-8888-8888-8888-888888888881",
+                                           "branchId":  "11111111-1111-1111-1111-111111111111",
+                                           "customerId":  "44444444-4444-4444-4444-444444444441",
+                                           "customer":  null,
+                                           "loanCode":  "LN00001",
+                                           "principal":  5000000,
+                                           "interestAmount":  600000,
+                                           "totalReceivable":  5600000,
+                                           "processingFees":  50000,
+                                           "status":  1,
+                                           "version":  1,
+                                           "submittedById":  null,
+                                           "submittedAt":  null,
+                                           "approvedById":  null,
+                                           "approvedAt":  null,
+                                           "rejectionReason":  null,
+                                           "documentUrls":  null,
+                                           "installments":  [
+
+                                                            ]
+                                       }
+                                   ],
+                         "Count":  1
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:47"
+    },
+    {
+        "TestId":  "TS_API_108",
+        "Endpoint":  "GET /api/journal/entries",
+        "Description":  "Verify get journal entries returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "success":  true,
+                         "data":  [
+                                      {
+                                          "id":  "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb1",
+                                          "journalEntryCode":  "JE-3001",
+                                          "publicId":  "JE-3001",
+                                          "date":  "2026-06-28T15:03:24.725655Z",
+                                          "description":  "Initial Capital Injection",
+                                          "reference":  "VC-01",
+                                          "isManual":  true,
+                                          "isPosted":  true,
+                                          "capitalTransactionId":  null,
+                                          "lines":  [
+                                                        {
+                                                            "journalLineCode":  "JL-3001-1",
+                                                            "accountCode":  "GL-1001",
+                                                            "accountName":  "Cash Office",
+                                                            "type":  "debit",
+                                                            "amount":  500000000
+                                                        },
+                                                        {
+                                                            "journalLineCode":  "JL-3001-2",
+                                                            "accountCode":  "GL-3000",
+                                                            "accountName":  "Equity Capital",
+                                                            "type":  "credit",
+                                                            "amount":  500000000
+                                                        }
+                                                    ]
+                                      }
+                                  ],
+                         "pagination":  {
+                                            "total":  1,
+                                            "limit":  50,
+                                            "offset":  0,
+                                            "returned":  1
+                                        }
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:47"
+    },
+    {
+        "TestId":  "TS_API_109",
+        "Endpoint":  "GET /api/ledger/trial-balance",
+        "Description":  "Verify get trial balance returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "success":  true,
+                         "data":  {
+                                      "isBalanced":  true,
+                                      "totalDebits":  500000000,
+                                      "totalCredits":  500000000,
+                                      "accounts":  [
+                                                       {
+                                                           "accountCode":  "GL-1001",
+                                                           "accountName":  "Cash Office",
+                                                           "debits":  500000000,
+                                                           "credits":  0
+                                                       },
+                                                       {
+                                                           "accountCode":  "GL-3000",
+                                                           "accountName":  "Equity Capital",
+                                                           "debits":  0,
+                                                           "credits":  500000000
+                                                       }
+                                                   ],
+                                      "timestamp":  "2026-06-28T15:03:47.5428828Z"
+                                  },
+                         "verificationStatus":  {
+                                                    "isBalanced":  true,
+                                                    "totalDebits":  500000000,
+                                                    "totalCredits":  500000000,
+                                                    "difference":  0
+                                                }
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:47"
+    },
+    {
+        "TestId":  "TS_API_110",
+        "Endpoint":  "GET /api/ledger/pnl",
+        "Description":  "Verify get PnL returns 200",
+        "ExpectedStatus":  200,
+        "ActualStatus":  200,
+        "Response":  {
+                         "profitAndLoss":  0
+                     },
+        "Passed":  true,
+        "ErrorMsg":  "",
+        "Timestamp":  "2026-06-28 20:33:47"
+    }
+]

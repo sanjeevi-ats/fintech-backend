@@ -1,0 +1,15 @@
+bin/
+obj/
+*.user
+*.log
+.vs/
+Logs/
+__MACOSX/
+*.md
+*.txt
+*.sql
+*.py
+*.ps1
+*.sh
+dotnet/
+dotnet-install.sh

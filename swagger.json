@@ -1,0 +1,1635 @@
+﻿{
+    "openapi":  "3.0.1",
+    "info":  {
+                 "title":  "FinVeda API",
+                 "version":  "v1"
+             },
+    "paths":  {
+                  "/api/v1/Audit/{entityName}/{recordId}":  {
+                                                                "get":  {
+                                                                            "tags":  [
+                                                                                         "Audit"
+                                                                                     ],
+                                                                            "parameters":  [
+                                                                                               {
+                                                                                                   "name":  "entityName",
+                                                                                                   "in":  "path",
+                                                                                                   "required":  true,
+                                                                                                   "schema":  "@{type=string}"
+                                                                                               },
+                                                                                               {
+                                                                                                   "name":  "recordId",
+                                                                                                   "in":  "path",
+                                                                                                   "required":  true,
+                                                                                                   "schema":  "@{type=string}"
+                                                                                               }
+                                                                                           ],
+                                                                            "responses":  {
+                                                                                              "200":  {
+                                                                                                          "description":  "OK"
+                                                                                                      }
+                                                                                          }
+                                                                        }
+                                                            },
+                  "/api/v1/Audit/recent":  {
+                                               "get":  {
+                                                           "tags":  [
+                                                                        "Audit"
+                                                                    ],
+                                                           "parameters":  [
+                                                                              {
+                                                                                  "name":  "count",
+                                                                                  "in":  "query",
+                                                                                  "schema":  "@{type=integer; format=int32; default=100}"
+                                                                              }
+                                                                          ],
+                                                           "responses":  {
+                                                                             "200":  {
+                                                                                         "description":  "OK"
+                                                                                     }
+                                                                         }
+                                                       }
+                                           },
+                  "/api/v1/Auth/login":  {
+                                             "post":  {
+                                                          "tags":  [
+                                                                       "Auth"
+                                                                   ],
+                                                          "requestBody":  {
+                                                                              "content":  {
+                                                                                              "application/json":  "@{schema=}",
+                                                                                              "text/json":  "@{schema=}",
+                                                                                              "application/*+json":  "@{schema=}"
+                                                                                          }
+                                                                          },
+                                                          "responses":  {
+                                                                            "200":  {
+                                                                                        "description":  "OK"
+                                                                                    }
+                                                                        }
+                                                      }
+                                         },
+                  "/api/v1/Auth/register":  {
+                                                "post":  {
+                                                             "tags":  [
+                                                                          "Auth"
+                                                                      ],
+                                                             "requestBody":  {
+                                                                                 "content":  {
+                                                                                                 "application/json":  "@{schema=}",
+                                                                                                 "text/json":  "@{schema=}",
+                                                                                                 "application/*+json":  "@{schema=}"
+                                                                                             }
+                                                                             },
+                                                             "responses":  {
+                                                                               "200":  {
+                                                                                           "description":  "OK"
+                                                                                       }
+                                                                           }
+                                                         }
+                                            },
+                  "/api/v1/Auth/refresh-token":  {
+                                                     "post":  {
+                                                                  "tags":  [
+                                                                               "Auth"
+                                                                           ],
+                                                                  "requestBody":  {
+                                                                                      "content":  {
+                                                                                                      "application/json":  "@{schema=}",
+                                                                                                      "text/json":  "@{schema=}",
+                                                                                                      "application/*+json":  "@{schema=}"
+                                                                                                  }
+                                                                                  },
+                                                                  "responses":  {
+                                                                                    "200":  {
+                                                                                                "description":  "OK"
+                                                                                            }
+                                                                                }
+                                                              }
+                                                 },
+                  "/api/v1/Auth/enable-totp":  {
+                                                   "post":  {
+                                                                "tags":  [
+                                                                             "Auth"
+                                                                         ],
+                                                                "requestBody":  {
+                                                                                    "content":  {
+                                                                                                    "application/json":  "@{schema=}",
+                                                                                                    "text/json":  "@{schema=}",
+                                                                                                    "application/*+json":  "@{schema=}"
+                                                                                                }
+                                                                                },
+                                                                "responses":  {
+                                                                                  "200":  {
+                                                                                              "description":  "OK"
+                                                                                          }
+                                                                              }
+                                                            }
+                                               },
+                  "/api/v1/Auth/change-password":  {
+                                                       "post":  {
+                                                                    "tags":  [
+                                                                                 "Auth"
+                                                                             ],
+                                                                    "requestBody":  {
+                                                                                        "content":  {
+                                                                                                        "application/json":  "@{schema=}",
+                                                                                                        "text/json":  "@{schema=}",
+                                                                                                        "application/*+json":  "@{schema=}"
+                                                                                                    }
+                                                                                    },
+                                                                    "responses":  {
+                                                                                      "200":  {
+                                                                                                  "description":  "OK"
+                                                                                              }
+                                                                                  }
+                                                                }
+                                                   },
+                  "/api/v1/Branch":  {
+                                         "get":  {
+                                                     "tags":  [
+                                                                  "Branch"
+                                                              ],
+                                                     "responses":  {
+                                                                       "200":  {
+                                                                                   "description":  "OK"
+                                                                               }
+                                                                   }
+                                                 },
+                                         "post":  {
+                                                      "tags":  [
+                                                                   "Branch"
+                                                               ],
+                                                      "requestBody":  {
+                                                                          "content":  {
+                                                                                          "application/json":  "@{schema=}",
+                                                                                          "text/json":  "@{schema=}",
+                                                                                          "application/*+json":  "@{schema=}"
+                                                                                      }
+                                                                      },
+                                                      "responses":  {
+                                                                        "200":  {
+                                                                                    "description":  "OK"
+                                                                                }
+                                                                    }
+                                                  }
+                                     },
+                  "/api/v1/Branch/{id}":  {
+                                              "get":  {
+                                                          "tags":  [
+                                                                       "Branch"
+                                                                   ],
+                                                          "parameters":  [
+                                                                             {
+                                                                                 "name":  "id",
+                                                                                 "in":  "path",
+                                                                                 "required":  true,
+                                                                                 "schema":  "@{type=string; format=uuid}"
+                                                                             }
+                                                                         ],
+                                                          "responses":  {
+                                                                            "200":  {
+                                                                                        "description":  "OK"
+                                                                                    }
+                                                                        }
+                                                      },
+                                              "put":  {
+                                                          "tags":  [
+                                                                       "Branch"
+                                                                   ],
+                                                          "parameters":  [
+                                                                             {
+                                                                                 "name":  "id",
+                                                                                 "in":  "path",
+                                                                                 "required":  true,
+                                                                                 "schema":  "@{type=string; format=uuid}"
+                                                                             }
+                                                                         ],
+                                                          "requestBody":  {
+                                                                              "content":  {
+                                                                                              "application/json":  "@{schema=}",
+                                                                                              "text/json":  "@{schema=}",
+                                                                                              "application/*+json":  "@{schema=}"
+                                                                                          }
+                                                                          },
+                                                          "responses":  {
+                                                                            "200":  {
+                                                                                        "description":  "OK"
+                                                                                    }
+                                                                        }
+                                                      },
+                                              "delete":  {
+                                                             "tags":  [
+                                                                          "Branch"
+                                                                      ],
+                                                             "parameters":  [
+                                                                                {
+                                                                                    "name":  "id",
+                                                                                    "in":  "path",
+                                                                                    "required":  true,
+                                                                                    "schema":  "@{type=string; format=uuid}"
+                                                                                }
+                                                                            ],
+                                                             "responses":  {
+                                                                               "200":  {
+                                                                                           "description":  "OK"
+                                                                                       }
+                                                                           }
+                                                         }
+                                          },
+                  "/api/v1/Branch/search":  {
+                                                "get":  {
+                                                            "tags":  [
+                                                                         "Branch"
+                                                                     ],
+                                                            "parameters":  [
+                                                                               {
+                                                                                   "name":  "query",
+                                                                                   "in":  "query",
+                                                                                   "schema":  "@{type=string}"
+                                                                               }
+                                                                           ],
+                                                            "responses":  {
+                                                                              "200":  {
+                                                                                          "description":  "OK"
+                                                                                      }
+                                                                          }
+                                                        }
+                                            },
+                  "/api/v1/Branch/{id}/settings":  {
+                                                       "put":  {
+                                                                   "tags":  [
+                                                                                "Branch"
+                                                                            ],
+                                                                   "parameters":  [
+                                                                                      {
+                                                                                          "name":  "id",
+                                                                                          "in":  "path",
+                                                                                          "required":  true,
+                                                                                          "schema":  "@{type=string; format=uuid}"
+                                                                                      }
+                                                                                  ],
+                                                                   "requestBody":  {
+                                                                                       "content":  {
+                                                                                                       "application/json":  "@{schema=}",
+                                                                                                       "text/json":  "@{schema=}",
+                                                                                                       "application/*+json":  "@{schema=}"
+                                                                                                   }
+                                                                                   },
+                                                                   "responses":  {
+                                                                                     "200":  {
+                                                                                                 "description":  "OK"
+                                                                                             }
+                                                                                 }
+                                                               }
+                                                   },
+                  "/api/v1/CapitalAccounts/investment":  {
+                                                             "post":  {
+                                                                          "tags":  [
+                                                                                       "CapitalAccounts"
+                                                                                   ],
+                                                                          "requestBody":  {
+                                                                                              "content":  {
+                                                                                                              "application/json":  "@{schema=}",
+                                                                                                              "text/json":  "@{schema=}",
+                                                                                                              "application/*+json":  "@{schema=}"
+                                                                                                          }
+                                                                                          },
+                                                                          "responses":  {
+                                                                                            "200":  {
+                                                                                                        "description":  "OK"
+                                                                                                    }
+                                                                                        }
+                                                                      }
+                                                         },
+                  "/api/v1/CapitalAccounts/withdrawal":  {
+                                                             "post":  {
+                                                                          "tags":  [
+                                                                                       "CapitalAccounts"
+                                                                                   ],
+                                                                          "requestBody":  {
+                                                                                              "content":  {
+                                                                                                              "application/json":  "@{schema=}",
+                                                                                                              "text/json":  "@{schema=}",
+                                                                                                              "application/*+json":  "@{schema=}"
+                                                                                                          }
+                                                                                          },
+                                                                          "responses":  {
+                                                                                            "200":  {
+                                                                                                        "description":  "OK"
+                                                                                                    }
+                                                                                        }
+                                                                      }
+                                                         },
+                  "/api/v1/CapitalAccounts/summary/{partnerId}":  {
+                                                                      "get":  {
+                                                                                  "tags":  [
+                                                                                               "CapitalAccounts"
+                                                                                           ],
+                                                                                  "parameters":  [
+                                                                                                     {
+                                                                                                         "name":  "partnerId",
+                                                                                                         "in":  "path",
+                                                                                                         "required":  true,
+                                                                                                         "schema":  "@{type=string; format=uuid}"
+                                                                                                     }
+                                                                                                 ],
+                                                                                  "responses":  {
+                                                                                                    "200":  {
+                                                                                                                "description":  "OK",
+                                                                                                                "content":  "@{text/plain=; application/json=; text/json=}"
+                                                                                                            }
+                                                                                                }
+                                                                              }
+                                                                  },
+                  "/api/Collection/collect":  {
+                                                  "post":  {
+                                                               "tags":  [
+                                                                            "Collection"
+                                                                        ],
+                                                               "requestBody":  {
+                                                                                   "content":  {
+                                                                                                   "application/json":  "@{schema=}",
+                                                                                                   "text/json":  "@{schema=}",
+                                                                                                   "application/*+json":  "@{schema=}"
+                                                                                               }
+                                                                               },
+                                                               "responses":  {
+                                                                                 "200":  {
+                                                                                             "description":  "OK"
+                                                                                         }
+                                                                             }
+                                                           }
+                                              },
+                  "/api/Collection/sync":  {
+                                               "post":  {
+                                                            "tags":  [
+                                                                         "Collection"
+                                                                     ],
+                                                            "requestBody":  {
+                                                                                "content":  {
+                                                                                                "application/json":  "@{schema=}",
+                                                                                                "text/json":  "@{schema=}",
+                                                                                                "application/*+json":  "@{schema=}"
+                                                                                            }
+                                                                            },
+                                                            "responses":  {
+                                                                              "200":  {
+                                                                                          "description":  "OK"
+                                                                                      }
+                                                                          }
+                                                        }
+                                           },
+                  "/api/v1/Customers":  {
+                                            "post":  {
+                                                         "tags":  [
+                                                                      "Customers"
+                                                                  ],
+                                                         "requestBody":  {
+                                                                             "content":  {
+                                                                                             "application/json":  "@{schema=}",
+                                                                                             "text/json":  "@{schema=}",
+                                                                                             "application/*+json":  "@{schema=}"
+                                                                                         }
+                                                                         },
+                                                         "responses":  {
+                                                                           "200":  {
+                                                                                       "description":  "OK"
+                                                                                   }
+                                                                       }
+                                                     },
+                                            "get":  {
+                                                        "tags":  [
+                                                                     "Customers"
+                                                                 ],
+                                                        "responses":  {
+                                                                          "200":  {
+                                                                                      "description":  "OK",
+                                                                                      "content":  "@{text/plain=; application/json=; text/json=}"
+                                                                                  }
+                                                                      }
+                                                    }
+                                        },
+                  "/api/v1/Customers/{id}":  {
+                                                 "get":  {
+                                                             "tags":  [
+                                                                          "Customers"
+                                                                      ],
+                                                             "parameters":  [
+                                                                                {
+                                                                                    "name":  "id",
+                                                                                    "in":  "path",
+                                                                                    "required":  true,
+                                                                                    "schema":  "@{type=string; format=uuid}"
+                                                                                }
+                                                                            ],
+                                                             "responses":  {
+                                                                               "200":  {
+                                                                                           "description":  "OK",
+                                                                                           "content":  "@{text/plain=; application/json=; text/json=}"
+                                                                                       }
+                                                                           }
+                                                         },
+                                                 "put":  {
+                                                             "tags":  [
+                                                                          "Customers"
+                                                                      ],
+                                                             "parameters":  [
+                                                                                {
+                                                                                    "name":  "id",
+                                                                                    "in":  "path",
+                                                                                    "required":  true,
+                                                                                    "schema":  "@{type=string; format=uuid}"
+                                                                                }
+                                                                            ],
+                                                             "requestBody":  {
+                                                                                 "content":  {
+                                                                                                 "application/json":  "@{schema=}",
+                                                                                                 "text/json":  "@{schema=}",
+                                                                                                 "application/*+json":  "@{schema=}"
+                                                                                             }
+                                                                             },
+                                                             "responses":  {
+                                                                               "200":  {
+                                                                                           "description":  "OK"
+                                                                                       }
+                                                                           }
+                                                         },
+                                                 "delete":  {
+                                                                "tags":  [
+                                                                             "Customers"
+                                                                         ],
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "id",
+                                                                                       "in":  "path",
+                                                                                       "required":  true,
+                                                                                       "schema":  "@{type=string; format=uuid}"
+                                                                                   }
+                                                                               ],
+                                                                "responses":  {
+                                                                                  "200":  {
+                                                                                              "description":  "OK"
+                                                                                          }
+                                                                              }
+                                                            }
+                                             },
+                  "/api/DayEnd/close":  {
+                                            "post":  {
+                                                         "tags":  [
+                                                                      "DayEnd"
+                                                                  ],
+                                                         "parameters":  [
+                                                                            {
+                                                                                "name":  "date",
+                                                                                "in":  "query",
+                                                                                "schema":  "@{type=string; format=date-time}"
+                                                                            },
+                                                                            {
+                                                                                "name":  "verifiedCash",
+                                                                                "in":  "query",
+                                                                                "schema":  "@{type=integer; format=int64}"
+                                                                            }
+                                                                        ],
+                                                         "responses":  {
+                                                                           "200":  {
+                                                                                       "description":  "OK"
+                                                                                   }
+                                                                       }
+                                                     }
+                                        },
+                  "/api/v1/Installments/generate/{loanId}":  {
+                                                                 "post":  {
+                                                                              "tags":  [
+                                                                                           "Installments"
+                                                                                       ],
+                                                                              "parameters":  [
+                                                                                                 {
+                                                                                                     "name":  "loanId",
+                                                                                                     "in":  "path",
+                                                                                                     "required":  true,
+                                                                                                     "schema":  "@{type=string; format=uuid}"
+                                                                                                 },
+                                                                                                 {
+                                                                                                     "name":  "count",
+                                                                                                     "in":  "query",
+                                                                                                     "schema":  "@{type=integer; format=int32; default=12}"
+                                                                                                 }
+                                                                                             ],
+                                                                              "responses":  {
+                                                                                                "200":  {
+                                                                                                            "description":  "OK"
+                                                                                                        }
+                                                                                            }
+                                                                          }
+                                                             },
+                  "/api/v1/Installments/due":  {
+                                                   "get":  {
+                                                               "tags":  [
+                                                                            "Installments"
+                                                                        ],
+                                                               "parameters":  [
+                                                                                  {
+                                                                                      "name":  "from",
+                                                                                      "in":  "query",
+                                                                                      "schema":  "@{type=string; format=date-time}"
+                                                                                  },
+                                                                                  {
+                                                                                      "name":  "to",
+                                                                                      "in":  "query",
+                                                                                      "schema":  "@{type=string; format=date-time}"
+                                                                                  }
+                                                                              ],
+                                                               "responses":  {
+                                                                                 "200":  {
+                                                                                             "description":  "OK",
+                                                                                             "content":  "@{text/plain=; application/json=; text/json=}"
+                                                                                         }
+                                                                             }
+                                                           }
+                                               },
+                  "/api/v1/Installments/loan/{loanId}":  {
+                                                             "get":  {
+                                                                         "tags":  [
+                                                                                      "Installments"
+                                                                                  ],
+                                                                         "parameters":  [
+                                                                                            {
+                                                                                                "name":  "loanId",
+                                                                                                "in":  "path",
+                                                                                                "required":  true,
+                                                                                                "schema":  "@{type=string; format=uuid}"
+                                                                                            }
+                                                                                        ],
+                                                                         "responses":  {
+                                                                                           "200":  {
+                                                                                                       "description":  "OK",
+                                                                                                       "content":  "@{text/plain=; application/json=; text/json=}"
+                                                                                                   }
+                                                                                       }
+                                                                     }
+                                                         },
+                  "/api/Journal/entries":  {
+                                               "get":  {
+                                                           "tags":  [
+                                                                        "Journal"
+                                                                    ],
+                                                           "responses":  {
+                                                                             "200":  {
+                                                                                         "description":  "OK"
+                                                                                     }
+                                                                         }
+                                                       }
+                                           },
+                  "/api/Ledger/trial-balance":  {
+                                                    "get":  {
+                                                                "tags":  [
+                                                                             "Ledger"
+                                                                         ],
+                                                                "responses":  {
+                                                                                  "200":  {
+                                                                                              "description":  "OK"
+                                                                                          }
+                                                                              }
+                                                            }
+                                                },
+                  "/api/Ledger/pnl":  {
+                                          "get":  {
+                                                      "tags":  [
+                                                                   "Ledger"
+                                                               ],
+                                                      "parameters":  [
+                                                                         {
+                                                                             "name":  "start",
+                                                                             "in":  "query",
+                                                                             "schema":  "@{type=string; format=date-time}"
+                                                                         },
+                                                                         {
+                                                                             "name":  "end",
+                                                                             "in":  "query",
+                                                                             "schema":  "@{type=string; format=date-time}"
+                                                                         }
+                                                                     ],
+                                                      "responses":  {
+                                                                        "200":  {
+                                                                                    "description":  "OK"
+                                                                                }
+                                                                    }
+                                                  }
+                                      },
+                  "/api/v1/LoanCases":  {
+                                            "post":  {
+                                                         "tags":  [
+                                                                      "LoanCases"
+                                                                  ],
+                                                         "requestBody":  {
+                                                                             "content":  {
+                                                                                             "application/json":  "@{schema=}",
+                                                                                             "text/json":  "@{schema=}",
+                                                                                             "application/*+json":  "@{schema=}"
+                                                                                         }
+                                                                         },
+                                                         "responses":  {
+                                                                           "200":  {
+                                                                                       "description":  "OK"
+                                                                                   }
+                                                                       }
+                                                     },
+                                            "get":  {
+                                                        "tags":  [
+                                                                     "LoanCases"
+                                                                 ],
+                                                        "responses":  {
+                                                                          "200":  {
+                                                                                      "description":  "OK",
+                                                                                      "content":  "@{text/plain=; application/json=; text/json=}"
+                                                                                  }
+                                                                      }
+                                                    }
+                                        },
+                  "/api/v1/LoanCases/{id}":  {
+                                                 "get":  {
+                                                             "tags":  [
+                                                                          "LoanCases"
+                                                                      ],
+                                                             "parameters":  [
+                                                                                {
+                                                                                    "name":  "id",
+                                                                                    "in":  "path",
+                                                                                    "required":  true,
+                                                                                    "schema":  "@{type=string; format=uuid}"
+                                                                                }
+                                                                            ],
+                                                             "responses":  {
+                                                                               "200":  {
+                                                                                           "description":  "OK",
+                                                                                           "content":  "@{text/plain=; application/json=; text/json=}"
+                                                                                       }
+                                                                           }
+                                                         }
+                                             },
+                  "/api/v1/LoanCases/{id}/approve":  {
+                                                         "post":  {
+                                                                      "tags":  [
+                                                                                   "LoanCases"
+                                                                               ],
+                                                                      "parameters":  [
+                                                                                         {
+                                                                                             "name":  "id",
+                                                                                             "in":  "path",
+                                                                                             "required":  true,
+                                                                                             "schema":  "@{type=string; format=uuid}"
+                                                                                         }
+                                                                                     ],
+                                                                      "responses":  {
+                                                                                        "200":  {
+                                                                                                    "description":  "OK"
+                                                                                                }
+                                                                                    }
+                                                                  }
+                                                     },
+                  "/api/v1/LoanCases/{id}/disburse":  {
+                                                          "post":  {
+                                                                       "tags":  [
+                                                                                    "LoanCases"
+                                                                                ],
+                                                                       "parameters":  [
+                                                                                          {
+                                                                                              "name":  "id",
+                                                                                              "in":  "path",
+                                                                                              "required":  true,
+                                                                                              "schema":  "@{type=string; format=uuid}"
+                                                                                          }
+                                                                                      ],
+                                                                       "responses":  {
+                                                                                         "200":  {
+                                                                                                     "description":  "OK"
+                                                                                                 }
+                                                                                     }
+                                                                   }
+                                                      },
+                  "/api/v1/Partners":  {
+                                           "post":  {
+                                                        "tags":  [
+                                                                     "Partners"
+                                                                 ],
+                                                        "requestBody":  {
+                                                                            "content":  {
+                                                                                            "application/json":  "@{schema=}",
+                                                                                            "text/json":  "@{schema=}",
+                                                                                            "application/*+json":  "@{schema=}"
+                                                                                        }
+                                                                        },
+                                                        "responses":  {
+                                                                          "200":  {
+                                                                                      "description":  "OK"
+                                                                                  }
+                                                                      }
+                                                    },
+                                           "get":  {
+                                                       "tags":  [
+                                                                    "Partners"
+                                                                ],
+                                                       "responses":  {
+                                                                         "200":  {
+                                                                                     "description":  "OK",
+                                                                                     "content":  "@{text/plain=; application/json=; text/json=}"
+                                                                                 }
+                                                                     }
+                                                   }
+                                       },
+                  "/api/v1/Partners/{id}":  {
+                                                "get":  {
+                                                            "tags":  [
+                                                                         "Partners"
+                                                                     ],
+                                                            "parameters":  [
+                                                                               {
+                                                                                   "name":  "id",
+                                                                                   "in":  "path",
+                                                                                   "required":  true,
+                                                                                   "schema":  "@{type=string; format=uuid}"
+                                                                               }
+                                                                           ],
+                                                            "responses":  {
+                                                                              "200":  {
+                                                                                          "description":  "OK",
+                                                                                          "content":  "@{text/plain=; application/json=; text/json=}"
+                                                                                      }
+                                                                          }
+                                                        },
+                                                "put":  {
+                                                            "tags":  [
+                                                                         "Partners"
+                                                                     ],
+                                                            "parameters":  [
+                                                                               {
+                                                                                   "name":  "id",
+                                                                                   "in":  "path",
+                                                                                   "required":  true,
+                                                                                   "schema":  "@{type=string; format=uuid}"
+                                                                               }
+                                                                           ],
+                                                            "requestBody":  {
+                                                                                "content":  {
+                                                                                                "application/json":  "@{schema=}",
+                                                                                                "text/json":  "@{schema=}",
+                                                                                                "application/*+json":  "@{schema=}"
+                                                                                            }
+                                                                            },
+                                                            "responses":  {
+                                                                              "200":  {
+                                                                                          "description":  "OK"
+                                                                                      }
+                                                                          }
+                                                        }
+                                            },
+                  "/api/v1/Product/active":  {
+                                                 "get":  {
+                                                             "tags":  [
+                                                                          "Product"
+                                                                      ],
+                                                             "responses":  {
+                                                                               "200":  {
+                                                                                           "description":  "OK"
+                                                                                       }
+                                                                           }
+                                                         }
+                                             },
+                  "/api/v1/Product":  {
+                                          "post":  {
+                                                       "tags":  [
+                                                                    "Product"
+                                                                ],
+                                                       "requestBody":  {
+                                                                           "content":  {
+                                                                                           "application/json":  "@{schema=}",
+                                                                                           "text/json":  "@{schema=}",
+                                                                                           "application/*+json":  "@{schema=}"
+                                                                                       }
+                                                                       },
+                                                       "responses":  {
+                                                                         "200":  {
+                                                                                     "description":  "OK"
+                                                                                 }
+                                                                     }
+                                                   }
+                                      },
+                  "/api/v1/Product/{id}":  {
+                                               "delete":  {
+                                                              "tags":  [
+                                                                           "Product"
+                                                                       ],
+                                                              "parameters":  [
+                                                                                 {
+                                                                                     "name":  "id",
+                                                                                     "in":  "path",
+                                                                                     "required":  true,
+                                                                                     "schema":  "@{type=string; format=uuid}"
+                                                                                 }
+                                                                             ],
+                                                              "responses":  {
+                                                                                "200":  {
+                                                                                            "description":  "OK"
+                                                                                        }
+                                                                            }
+                                                          }
+                                           },
+                  "/api/v1/Receipts":  {
+                                           "post":  {
+                                                        "tags":  [
+                                                                     "Receipts"
+                                                                 ],
+                                                        "requestBody":  {
+                                                                            "content":  {
+                                                                                            "application/json":  "@{schema=}",
+                                                                                            "text/json":  "@{schema=}",
+                                                                                            "application/*+json":  "@{schema=}"
+                                                                                        }
+                                                                        },
+                                                        "responses":  {
+                                                                          "200":  {
+                                                                                      "description":  "OK"
+                                                                                  }
+                                                                      }
+                                                    }
+                                       },
+                  "/api/Recovery/overdue":  {
+                                                "get":  {
+                                                            "tags":  [
+                                                                         "Recovery"
+                                                                     ],
+                                                            "responses":  {
+                                                                              "200":  {
+                                                                                          "description":  "OK"
+                                                                                      }
+                                                                          }
+                                                        }
+                                            },
+                  "/api/Recovery/{id}/follow-up":  {
+                                                       "post":  {
+                                                                    "tags":  [
+                                                                                 "Recovery"
+                                                                             ],
+                                                                    "parameters":  [
+                                                                                       {
+                                                                                           "name":  "id",
+                                                                                           "in":  "path",
+                                                                                           "required":  true,
+                                                                                           "schema":  "@{type=string; format=uuid}"
+                                                                                       }
+                                                                                   ],
+                                                                    "requestBody":  {
+                                                                                        "content":  {
+                                                                                                        "application/json":  "@{schema=}",
+                                                                                                        "text/json":  "@{schema=}",
+                                                                                                        "application/*+json":  "@{schema=}"
+                                                                                                    }
+                                                                                    },
+                                                                    "responses":  {
+                                                                                      "200":  {
+                                                                                                  "description":  "OK"
+                                                                                              }
+                                                                                  }
+                                                                }
+                                                   },
+                  "/api/v1/Report/par":  {
+                                             "get":  {
+                                                         "tags":  [
+                                                                      "Report"
+                                                                  ],
+                                                         "parameters":  [
+                                                                            {
+                                                                                "name":  "start",
+                                                                                "in":  "query",
+                                                                                "schema":  "@{type=string; format=date-time}"
+                                                                            },
+                                                                            {
+                                                                                "name":  "end",
+                                                                                "in":  "query",
+                                                                                "schema":  "@{type=string; format=date-time}"
+                                                                            }
+                                                                        ],
+                                                         "responses":  {
+                                                                           "200":  {
+                                                                                       "description":  "OK"
+                                                                                   }
+                                                                       }
+                                                     }
+                                         },
+                  "/api/v1/Report/efficiency":  {
+                                                    "get":  {
+                                                                "tags":  [
+                                                                             "Report"
+                                                                         ],
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "start",
+                                                                                       "in":  "query",
+                                                                                       "schema":  "@{type=string; format=date-time}"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "end",
+                                                                                       "in":  "query",
+                                                                                       "schema":  "@{type=string; format=date-time}"
+                                                                                   }
+                                                                               ],
+                                                                "responses":  {
+                                                                                  "200":  {
+                                                                                              "description":  "OK"
+                                                                                          }
+                                                                              }
+                                                            }
+                                                },
+                  "/api/v1/Report/dashboard-stats":  {
+                                                         "get":  {
+                                                                     "tags":  [
+                                                                                  "Report"
+                                                                              ],
+                                                                     "responses":  {
+                                                                                       "200":  {
+                                                                                                   "description":  "OK"
+                                                                                               }
+                                                                                   }
+                                                                 }
+                                                     },
+                  "/api/v1/Users":  {
+                                        "post":  {
+                                                     "tags":  [
+                                                                  "Users"
+                                                              ],
+                                                     "requestBody":  {
+                                                                         "content":  {
+                                                                                         "application/json":  "@{schema=}",
+                                                                                         "text/json":  "@{schema=}",
+                                                                                         "application/*+json":  "@{schema=}"
+                                                                                     }
+                                                                     },
+                                                     "responses":  {
+                                                                       "200":  {
+                                                                                   "description":  "OK"
+                                                                               }
+                                                                   }
+                                                 },
+                                        "get":  {
+                                                    "tags":  [
+                                                                 "Users"
+                                                             ],
+                                                    "responses":  {
+                                                                      "200":  {
+                                                                                  "description":  "OK",
+                                                                                  "content":  "@{text/plain=; application/json=; text/json=}"
+                                                                              }
+                                                                  }
+                                                }
+                                    },
+                  "/api/v1/Users/{id}":  {
+                                             "get":  {
+                                                         "tags":  [
+                                                                      "Users"
+                                                                  ],
+                                                         "parameters":  [
+                                                                            {
+                                                                                "name":  "id",
+                                                                                "in":  "path",
+                                                                                "required":  true,
+                                                                                "schema":  "@{type=string; format=uuid}"
+                                                                            }
+                                                                        ],
+                                                         "responses":  {
+                                                                           "200":  {
+                                                                                       "description":  "OK",
+                                                                                       "content":  "@{text/plain=; application/json=; text/json=}"
+                                                                                   }
+                                                                       }
+                                                     },
+                                             "put":  {
+                                                         "tags":  [
+                                                                      "Users"
+                                                                  ],
+                                                         "parameters":  [
+                                                                            {
+                                                                                "name":  "id",
+                                                                                "in":  "path",
+                                                                                "required":  true,
+                                                                                "schema":  "@{type=string; format=uuid}"
+                                                                            }
+                                                                        ],
+                                                         "requestBody":  {
+                                                                             "content":  {
+                                                                                             "application/json":  "@{schema=}",
+                                                                                             "text/json":  "@{schema=}",
+                                                                                             "application/*+json":  "@{schema=}"
+                                                                                         }
+                                                                         },
+                                                         "responses":  {
+                                                                           "200":  {
+                                                                                       "description":  "OK"
+                                                                                   }
+                                                                       }
+                                                     },
+                                             "delete":  {
+                                                            "tags":  [
+                                                                         "Users"
+                                                                     ],
+                                                            "parameters":  [
+                                                                               {
+                                                                                   "name":  "id",
+                                                                                   "in":  "path",
+                                                                                   "required":  true,
+                                                                                   "schema":  "@{type=string; format=uuid}"
+                                                                               }
+                                                                           ],
+                                                            "responses":  {
+                                                                              "200":  {
+                                                                                          "description":  "OK"
+                                                                                      }
+                                                                          }
+                                                        }
+                                         },
+                  "/WeatherForecast":  {
+                                           "get":  {
+                                                       "tags":  [
+                                                                    "WeatherForecast"
+                                                                ],
+                                                       "operationId":  "GetWeatherForecast",
+                                                       "responses":  {
+                                                                         "200":  {
+                                                                                     "description":  "OK",
+                                                                                     "content":  "@{text/plain=; application/json=; text/json=}"
+                                                                                 }
+                                                                     }
+                                                   }
+                                       }
+              },
+    "components":  {
+                       "schemas":  {
+                                       "Branch":  {
+                                                      "type":  "object",
+                                                      "properties":  {
+                                                                         "id":  {
+                                                                                    "type":  "string",
+                                                                                    "format":  "uuid"
+                                                                                },
+                                                                         "name":  {
+                                                                                      "type":  "string",
+                                                                                      "nullable":  true
+                                                                                  },
+                                                                         "city":  {
+                                                                                      "type":  "string",
+                                                                                      "nullable":  true
+                                                                                  },
+                                                                         "isActive":  {
+                                                                                          "type":  "boolean"
+                                                                                      }
+                                                                     },
+                                                      "additionalProperties":  false
+                                                  },
+                                       "ChangePasswordCommand":  {
+                                                                     "type":  "object",
+                                                                     "properties":  {
+                                                                                        "userId":  {
+                                                                                                       "type":  "string",
+                                                                                                       "format":  "uuid"
+                                                                                                   },
+                                                                                        "oldPassword":  {
+                                                                                                            "type":  "string",
+                                                                                                            "nullable":  true
+                                                                                                        },
+                                                                                        "newPassword":  {
+                                                                                                            "type":  "string",
+                                                                                                            "nullable":  true
+                                                                                                        }
+                                                                                    },
+                                                                     "additionalProperties":  false
+                                                                 },
+                                       "CreateLoanRequest":  {
+                                                                 "required":  [
+                                                                                  "customerId",
+                                                                                  "interestAmount",
+                                                                                  "principal",
+                                                                                  "processingFees"
+                                                                              ],
+                                                                 "type":  "object",
+                                                                 "properties":  {
+                                                                                    "customerId":  {
+                                                                                                       "type":  "string",
+                                                                                                       "format":  "uuid"
+                                                                                                   },
+                                                                                    "principal":  {
+                                                                                                      "type":  "integer",
+                                                                                                      "format":  "int64"
+                                                                                                  },
+                                                                                    "interestAmount":  {
+                                                                                                           "type":  "integer",
+                                                                                                           "format":  "int64"
+                                                                                                       },
+                                                                                    "processingFees":  {
+                                                                                                           "type":  "integer",
+                                                                                                           "format":  "int64"
+                                                                                                       }
+                                                                                },
+                                                                 "additionalProperties":  false
+                                                             },
+                                       "CustomerDto":  {
+                                                           "type":  "object",
+                                                           "properties":  {
+                                                                              "id":  {
+                                                                                         "type":  "string",
+                                                                                         "format":  "uuid"
+                                                                                     },
+                                                                              "name":  {
+                                                                                           "type":  "string",
+                                                                                           "nullable":  true
+                                                                                       },
+                                                                              "aadhaar":  {
+                                                                                              "type":  "string",
+                                                                                              "nullable":  true
+                                                                                          },
+                                                                              "pan":  {
+                                                                                          "type":  "string",
+                                                                                          "nullable":  true
+                                                                                      }
+                                                                          },
+                                                           "additionalProperties":  false
+                                                       },
+                                       "CustomerRequest":  {
+                                                               "required":  [
+                                                                                "aadhaar",
+                                                                                "name",
+                                                                                "pan"
+                                                                            ],
+                                                               "type":  "object",
+                                                               "properties":  {
+                                                                                  "name":  {
+                                                                                               "minLength":  1,
+                                                                                               "type":  "string"
+                                                                                           },
+                                                                                  "aadhaar":  {
+                                                                                                  "minLength":  1,
+                                                                                                  "type":  "string"
+                                                                                              },
+                                                                                  "pan":  {
+                                                                                              "minLength":  1,
+                                                                                              "type":  "string"
+                                                                                          },
+                                                                                  "branchId":  {
+                                                                                                   "type":  "string",
+                                                                                                   "format":  "uuid"
+                                                                                               }
+                                                                              },
+                                                               "additionalProperties":  false
+                                                           },
+                                       "EnableTotpCommand":  {
+                                                                 "type":  "object",
+                                                                 "properties":  {
+                                                                                    "userId":  {
+                                                                                                   "type":  "string",
+                                                                                                   "format":  "uuid"
+                                                                                               }
+                                                                                },
+                                                                 "additionalProperties":  false
+                                                             },
+                                       "Frequency":  {
+                                                         "enum":  [
+                                                                      0,
+                                                                      1,
+                                                                      2,
+                                                                      3
+                                                                  ],
+                                                         "type":  "integer",
+                                                         "format":  "int32"
+                                                     },
+                                       "InstallmentDto":  {
+                                                              "type":  "object",
+                                                              "properties":  {
+                                                                                 "id":  {
+                                                                                            "type":  "string",
+                                                                                            "format":  "uuid"
+                                                                                        },
+                                                                                 "no":  {
+                                                                                            "type":  "integer",
+                                                                                            "format":  "int32"
+                                                                                        },
+                                                                                 "dueDate":  {
+                                                                                                 "type":  "string",
+                                                                                                 "format":  "date-time"
+                                                                                             },
+                                                                                 "amount":  {
+                                                                                                "type":  "integer",
+                                                                                                "format":  "int64"
+                                                                                            },
+                                                                                 "status":  {
+                                                                                                "type":  "string",
+                                                                                                "nullable":  true
+                                                                                            }
+                                                                             },
+                                                              "additionalProperties":  false
+                                                          },
+                                       "InvestmentRequest":  {
+                                                                 "required":  [
+                                                                                  "amount",
+                                                                                  "partnerId"
+                                                                              ],
+                                                                 "type":  "object",
+                                                                 "properties":  {
+                                                                                    "partnerId":  {
+                                                                                                      "type":  "string",
+                                                                                                      "format":  "uuid"
+                                                                                                  },
+                                                                                    "amount":  {
+                                                                                                   "type":  "integer",
+                                                                                                   "format":  "int64"
+                                                                                               }
+                                                                                },
+                                                                 "additionalProperties":  false
+                                                             },
+                                       "LoanCaseDto":  {
+                                                           "type":  "object",
+                                                           "properties":  {
+                                                                              "id":  {
+                                                                                         "type":  "string",
+                                                                                         "format":  "uuid"
+                                                                                     },
+                                                                              "customerId":  {
+                                                                                                 "type":  "string",
+                                                                                                 "format":  "uuid"
+                                                                                             },
+                                                                              "customerName":  {
+                                                                                                   "type":  "string",
+                                                                                                   "nullable":  true
+                                                                                               },
+                                                                              "principal":  {
+                                                                                                "type":  "integer",
+                                                                                                "format":  "int64"
+                                                                                            },
+                                                                              "interestAmount":  {
+                                                                                                     "type":  "integer",
+                                                                                                     "format":  "int64"
+                                                                                                 },
+                                                                              "totalReceivable":  {
+                                                                                                      "type":  "integer",
+                                                                                                      "format":  "int64"
+                                                                                                  },
+                                                                              "processingFees":  {
+                                                                                                     "type":  "integer",
+                                                                                                     "format":  "int64"
+                                                                                                 },
+                                                                              "status":  {
+                                                                                             "type":  "string",
+                                                                                             "nullable":  true
+                                                                                         }
+                                                                          },
+                                                           "additionalProperties":  false
+                                                       },
+                                       "LoanProduct":  {
+                                                           "type":  "object",
+                                                           "properties":  {
+                                                                              "id":  {
+                                                                                         "type":  "string",
+                                                                                         "format":  "uuid"
+                                                                                     },
+                                                                              "branchId":  {
+                                                                                               "type":  "string",
+                                                                                               "format":  "uuid"
+                                                                                           },
+                                                                              "name":  {
+                                                                                           "type":  "string",
+                                                                                           "nullable":  true
+                                                                                       },
+                                                                              "code":  {
+                                                                                           "type":  "string",
+                                                                                           "nullable":  true
+                                                                                       },
+                                                                              "interestRate":  {
+                                                                                                   "type":  "number",
+                                                                                                   "format":  "double"
+                                                                                               },
+                                                                              "defaultTenureMonths":  {
+                                                                                                          "type":  "integer",
+                                                                                                          "format":  "int32"
+                                                                                                      },
+                                                                              "repaymentFrequency":  {
+                                                                                                         "$ref":  "#/components/schemas/Frequency"
+                                                                                                     },
+                                                                              "isActive":  {
+                                                                                               "type":  "boolean"
+                                                                                           }
+                                                                          },
+                                                           "additionalProperties":  false
+                                                       },
+                                       "LoginUserCommand":  {
+                                                                "type":  "object",
+                                                                "properties":  {
+                                                                                   "email":  {
+                                                                                                 "type":  "string",
+                                                                                                 "nullable":  true
+                                                                                             },
+                                                                                   "password":  {
+                                                                                                    "type":  "string",
+                                                                                                    "nullable":  true
+                                                                                                }
+                                                                               },
+                                                                "additionalProperties":  false
+                                                            },
+                                       "OfflineCollection":  {
+                                                                 "type":  "object",
+                                                                 "properties":  {
+                                                                                    "localId":  {
+                                                                                                    "type":  "string",
+                                                                                                    "nullable":  true
+                                                                                                },
+                                                                                    "installmentId":  {
+                                                                                                          "type":  "string",
+                                                                                                          "format":  "uuid"
+                                                                                                      },
+                                                                                    "amountPaid":  {
+                                                                                                       "type":  "integer",
+                                                                                                       "format":  "int64"
+                                                                                                   },
+                                                                                    "mode":  {
+                                                                                                 "type":  "string",
+                                                                                                 "nullable":  true
+                                                                                             },
+                                                                                    "utrRef":  {
+                                                                                                   "type":  "string",
+                                                                                                   "nullable":  true
+                                                                                               }
+                                                                                },
+                                                                 "additionalProperties":  false
+                                                             },
+                                       "PartnerCapitalSummaryDto":  {
+                                                                        "type":  "object",
+                                                                        "properties":  {
+                                                                                           "partnerId":  {
+                                                                                                             "type":  "string",
+                                                                                                             "format":  "uuid"
+                                                                                                         },
+                                                                                           "partnerName":  {
+                                                                                                               "type":  "string",
+                                                                                                               "nullable":  true
+                                                                                                           },
+                                                                                           "totalInvestment":  {
+                                                                                                                   "type":  "integer",
+                                                                                                                   "format":  "int64"
+                                                                                                               },
+                                                                                           "totalProfit":  {
+                                                                                                               "type":  "integer",
+                                                                                                               "format":  "int64"
+                                                                                                           },
+                                                                                           "totalWithdrawal":  {
+                                                                                                                   "type":  "integer",
+                                                                                                                   "format":  "int64"
+                                                                                                               },
+                                                                                           "currentBalance":  {
+                                                                                                                  "type":  "integer",
+                                                                                                                  "format":  "int64"
+                                                                                                              }
+                                                                                       },
+                                                                        "additionalProperties":  false
+                                                                    },
+                                       "PartnerDto":  {
+                                                          "type":  "object",
+                                                          "properties":  {
+                                                                             "id":  {
+                                                                                        "type":  "string",
+                                                                                        "format":  "uuid"
+                                                                                    },
+                                                                             "name":  {
+                                                                                          "type":  "string",
+                                                                                          "nullable":  true
+                                                                                      },
+                                                                             "email":  {
+                                                                                           "type":  "string",
+                                                                                           "nullable":  true
+                                                                                       },
+                                                                             "phone":  {
+                                                                                           "type":  "string",
+                                                                                           "nullable":  true
+                                                                                       },
+                                                                             "isActive":  {
+                                                                                              "type":  "boolean"
+                                                                                          }
+                                                                         },
+                                                          "additionalProperties":  false
+                                                      },
+                                       "PartnerRequest":  {
+                                                              "required":  [
+                                                                               "name"
+                                                                           ],
+                                                              "type":  "object",
+                                                              "properties":  {
+                                                                                 "name":  {
+                                                                                              "minLength":  1,
+                                                                                              "type":  "string"
+                                                                                          },
+                                                                                 "email":  {
+                                                                                               "type":  "string",
+                                                                                               "format":  "email",
+                                                                                               "nullable":  true
+                                                                                           },
+                                                                                 "phone":  {
+                                                                                               "type":  "string",
+                                                                                               "nullable":  true
+                                                                                           },
+                                                                                 "branchId":  {
+                                                                                                  "type":  "string",
+                                                                                                  "format":  "uuid"
+                                                                                              }
+                                                                             },
+                                                              "additionalProperties":  false
+                                                          },
+                                       "RecordPaymentRequest":  {
+                                                                    "required":  [
+                                                                                     "amountPaid",
+                                                                                     "installmentId",
+                                                                                     "mode"
+                                                                                 ],
+                                                                    "type":  "object",
+                                                                    "properties":  {
+                                                                                       "installmentId":  {
+                                                                                                             "type":  "string",
+                                                                                                             "format":  "uuid"
+                                                                                                         },
+                                                                                       "amountPaid":  {
+                                                                                                          "type":  "integer",
+                                                                                                          "format":  "int64"
+                                                                                                      },
+                                                                                       "mode":  {
+                                                                                                    "minLength":  1,
+                                                                                                    "type":  "string"
+                                                                                                },
+                                                                                       "utrRef":  {
+                                                                                                      "type":  "string",
+                                                                                                      "nullable":  true
+                                                                                                  }
+                                                                                   },
+                                                                    "additionalProperties":  false
+                                                                },
+                                       "RefreshTokenCommand":  {
+                                                                   "type":  "object",
+                                                                   "properties":  {
+                                                                                      "token":  {
+                                                                                                    "type":  "string",
+                                                                                                    "nullable":  true
+                                                                                                }
+                                                                                  },
+                                                                   "additionalProperties":  false
+                                                               },
+                                       "RegisterRequest":  {
+                                                               "required":  [
+                                                                                "branchId",
+                                                                                "email",
+                                                                                "name",
+                                                                                "password"
+                                                                            ],
+                                                               "type":  "object",
+                                                               "properties":  {
+                                                                                  "name":  {
+                                                                                               "minLength":  1,
+                                                                                               "type":  "string"
+                                                                                           },
+                                                                                  "email":  {
+                                                                                                "minLength":  1,
+                                                                                                "type":  "string",
+                                                                                                "format":  "email"
+                                                                                            },
+                                                                                  "password":  {
+                                                                                                   "minLength":  6,
+                                                                                                   "type":  "string"
+                                                                                               },
+                                                                                  "branchId":  {
+                                                                                                   "type":  "string",
+                                                                                                   "format":  "uuid"
+                                                                                               },
+                                                                                  "role":  {
+                                                                                               "type":  "string",
+                                                                                               "nullable":  true
+                                                                                           }
+                                                                              },
+                                                               "additionalProperties":  false
+                                                           },
+                                       "RegisterUserCommand":  {
+                                                                   "type":  "object",
+                                                                   "properties":  {
+                                                                                      "name":  {
+                                                                                                   "type":  "string",
+                                                                                                   "nullable":  true
+                                                                                               },
+                                                                                      "email":  {
+                                                                                                    "type":  "string",
+                                                                                                    "nullable":  true
+                                                                                                },
+                                                                                      "password":  {
+                                                                                                       "type":  "string",
+                                                                                                       "nullable":  true
+                                                                                                   },
+                                                                                      "branchId":  {
+                                                                                                       "type":  "string",
+                                                                                                       "format":  "uuid"
+                                                                                                   },
+                                                                                      "role":  {
+                                                                                                   "$ref":  "#/components/schemas/UserRole"
+                                                                                               }
+                                                                                  },
+                                                                   "additionalProperties":  false
+                                                               },
+                                       "UserDto":  {
+                                                       "type":  "object",
+                                                       "properties":  {
+                                                                          "id":  {
+                                                                                     "type":  "string",
+                                                                                     "format":  "uuid"
+                                                                                 },
+                                                                          "name":  {
+                                                                                       "type":  "string",
+                                                                                       "nullable":  true
+                                                                                   },
+                                                                          "email":  {
+                                                                                        "type":  "string",
+                                                                                        "nullable":  true
+                                                                                    },
+                                                                          "role":  {
+                                                                                       "type":  "string",
+                                                                                       "nullable":  true
+                                                                                   },
+                                                                          "isActive":  {
+                                                                                           "type":  "boolean"
+                                                                                       }
+                                                                      },
+                                                       "additionalProperties":  false
+                                                   },
+                                       "UserRole":  {
+                                                        "enum":  [
+                                                                     0,
+                                                                     1,
+                                                                     2,
+                                                                     3,
+                                                                     4,
+                                                                     5,
+                                                                     6,
+                                                                     7,
+                                                                     8
+                                                                 ],
+                                                        "type":  "integer",
+                                                        "format":  "int32"
+                                                    },
+                                       "WeatherForecast":  {
+                                                               "type":  "object",
+                                                               "properties":  {
+                                                                                  "date":  {
+                                                                                               "type":  "string",
+                                                                                               "format":  "date"
+                                                                                           },
+                                                                                  "temperatureC":  {
+                                                                                                       "type":  "integer",
+                                                                                                       "format":  "int32"
+                                                                                                   },
+                                                                                  "temperatureF":  {
+                                                                                                       "type":  "integer",
+                                                                                                       "format":  "int32",
+                                                                                                       "readOnly":  true
+                                                                                                   },
+                                                                                  "summary":  {
+                                                                                                  "type":  "string",
+                                                                                                  "nullable":  true
+                                                                                              }
+                                                                              },
+                                                               "additionalProperties":  false
+                                                           },
+                                       "WithdrawalRequest":  {
+                                                                 "required":  [
+                                                                                  "amount",
+                                                                                  "partnerId"
+                                                                              ],
+                                                                 "type":  "object",
+                                                                 "properties":  {
+                                                                                    "partnerId":  {
+                                                                                                      "type":  "string",
+                                                                                                      "format":  "uuid"
+                                                                                                  },
+                                                                                    "amount":  {
+                                                                                                   "type":  "integer",
+                                                                                                   "format":  "int64"
+                                                                                               }
+                                                                                },
+                                                                 "additionalProperties":  false
+                                                             }
+                                   },
+                       "securitySchemes":  {
+                                               "Bearer":  {
+                                                              "type":  "http",
+                                                              "description":  "Enter \u0027Bearer\u0027 [space] and then your valid token.",
+                                                              "scheme":  "Bearer",
+                                                              "bearerFormat":  "JWT"
+                                                          }
+                                           }
+                   },
+    "security":  [
+                     {
+                         "Bearer":  [
+
+                                    ]
+                     }
+                 ]
+}
