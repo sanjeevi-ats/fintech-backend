@@ -1,28 +1,24 @@
 # Multi-stage build for .NET Core API
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /app
+WORKDIR /src
 
-# Copy csproj and restore dependencies
-COPY Fintech/Fintech/*.csproj ./Fintech/Fintech/
-RUN dotnet restore ./Fintech/Fintech/Fintech.csproj
+# Copy csproj and restore
+COPY ["Fintech/Fintech/Fintech.csproj", "Fintech/Fintech/"]
+RUN dotnet restore "Fintech/Fintech/Fintech.csproj"
 
-# Copy everything else and build
+# Copy everything and build
 COPY . .
-WORKDIR /app/Fintech/Fintech
-RUN dotnet publish -c Release -o out
+WORKDIR "/src/Fintech/Fintech"
+RUN dotnet build "Fintech.csproj" -c Release -o /app/build
+RUN dotnet publish "Fintech.csproj" -c Release -o /app/publish
 
 # Runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
+COPY --from=build /app/publish .
 
-# Copy build artifacts
-COPY --from=build /app/Fintech/Fintech/out .
-
-# Copy migrations
-COPY --from=build /app/Fintech/Fintech/Migrations ./Migrations
-
-# Expose port - Render will provide PORT env variable
+# Expose port
 EXPOSE 5177
 
-# Use shell form to allow environment variable substitution at runtime
+# Use shell form for environment variable substitution
 CMD dotnet Fintech.dll --urls "http://0.0.0.0:${PORT:-5177}"
