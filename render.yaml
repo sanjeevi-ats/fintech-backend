@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: vettri-finance-backend
+    env: docker
+    dockerfilePath: ./Dockerfile
+    branch: main
+    region: singapore
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: ConnectionStrings__DefaultConnection
+        value: postgresql://neondb_owner:npg_V0lQJDLiq9Eb@ep-wandering-mud-ada1ui28-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: Jwt__Key
+        value: VettriFinance2026SecretKeyForJWT123456789012
+      - key: Jwt__Issuer
+        value: VettriFinance
+      - key: Jwt__Audience
+        value: VettriFinanceAPI
+      - key: AllowedOrigins__0
+        value: https://fintaech-front-end.vercel.app
+      - key: PORT
+        value: 5177
