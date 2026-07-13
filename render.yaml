@@ -20,5 +20,3 @@ services:
         value: VettriFinanceAPI
       - key: AllowedOrigins__0
         value: https://fintaech-front-end.vercel.app
-      - key: PORT
-        value: 5177
