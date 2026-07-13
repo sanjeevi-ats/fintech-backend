@@ -21,8 +21,8 @@ COPY --from=build /app/Fintech/Fintech/out .
 # Copy migrations
 COPY --from=build /app/Fintech/Fintech/Migrations ./Migrations
 
-# Expose port (Railway/Render will use PORT env variable)
-ENV ASPNETCORE_URLS=http://+:${PORT:-5177}
-EXPOSE ${PORT:-5177}
+# Expose port - Render will provide PORT env variable
+EXPOSE 5177
 
-ENTRYPOINT ["dotnet", "Fintech.dll"]
+# Use shell form to allow environment variable substitution at runtime
+CMD dotnet Fintech.dll --urls "http://0.0.0.0:${PORT:-5177}"
