@@ -1,12 +1,12 @@
 services:
   - type: web
-    name: vettri-finance-backend
+    name: fintech-backend
     env: docker
     dockerfilePath: ./Dockerfile
     branch: main
     region: singapore
     plan: free
-    healthCheckPath: /health
+    healthCheckPath: /swagger
     envVars:
       - key: ConnectionStrings__DefaultConnection
         value: postgresql://neondb_owner:npg_V0lQJDLiq9Eb@ep-wandering-mud-ada1ui28-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
@@ -20,3 +20,5 @@ services:
         value: VettriFinanceAPI
       - key: AllowedOrigins__0
         value: https://fintaech-front-end.vercel.app
+      - key: ASPNETCORE_URLS
+        value: http://+:8080

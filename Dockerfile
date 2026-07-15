@@ -1,24 +1,33 @@
-# Multi-stage build for .NET Core API
+# Multi-stage build for .NET 8 API (Render deployment)
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copy csproj and restore
+# Copy csproj and restore dependencies
 COPY ["Fintech/Fintech/Fintech.csproj", "Fintech/Fintech/"]
 RUN dotnet restore "Fintech/Fintech/Fintech.csproj"
 
-# Copy everything and build
+# Copy all source files
 COPY . .
+
+# Build and publish release
 WORKDIR "/src/Fintech/Fintech"
-RUN dotnet build "Fintech.csproj" -c Release -o /app/build
-RUN dotnet publish "Fintech.csproj" -c Release -o /app/publish
+RUN dotnet publish "Fintech.csproj" -c Release -o /app/publish --no-restore
 
 # Runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
+
+# Install curl for health checks
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
+# Copy published output
 COPY --from=build /app/publish .
 
-# Expose port
-EXPOSE 5177
+# Expose port 8080 (Render default)
+EXPOSE 8080
 
-# Use shell form for environment variable substitution
-CMD dotnet Fintech.dll --urls "http://0.0.0.0:${PORT:-5177}"
+# Production environment
+ENV ASPNETCORE_ENVIRONMENT=Production
+ENV ASPNETCORE_URLS=http://+:8080
+
+ENTRYPOINT ["dotnet", "Fintech.dll"]
