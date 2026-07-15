@@ -53,7 +53,20 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // Configure NpgsqlDataSource for Enums
-var connString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "Host=localhost;Database=FinVedaDb;Username=postgres;Password=postgres";
+// Strip channel_binding from connection string - not supported by all Npgsql versions and causes transient failures on Neon
+var rawConnString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "Host=localhost;Database=FinVedaDb;Username=postgres;Password=postgres";
+var connString = rawConnString;
+if (rawConnString.StartsWith("postgresql://") || rawConnString.StartsWith("postgres://"))
+{
+    // Convert URI format to Npgsql key-value format and remove channel_binding
+    var uri = new Uri(rawConnString.Split('?')[0]);
+    var queryParams = rawConnString.Contains('?') ? rawConnString.Split('?')[1] : "";
+    var filteredParams = string.Join("&", queryParams.Split('&')
+        .Where(p => !p.StartsWith("channel_binding", StringComparison.OrdinalIgnoreCase)));
+    var userInfo = uri.UserInfo.Split(':');
+    connString = $"Host={uri.Host};Database={uri.AbsolutePath.TrimStart('/')};Username={Uri.UnescapeDataString(userInfo[0])};Password={Uri.UnescapeDataString(userInfo[1])};SSL Mode=Require;Trust Server Certificate=true;";
+    if (!string.IsNullOrEmpty(filteredParams)) connString += filteredParams;
+}
 var dataSourceBuilder = new Npgsql.NpgsqlDataSourceBuilder(connString);
 var dataSource = dataSourceBuilder.Build();
 
