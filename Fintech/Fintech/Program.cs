@@ -53,14 +53,18 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // Configure NpgsqlDataSource for Enums
-// Strip channel_binding from connection string - not supported by all Npgsql versions and causes transient failures on Neon
-var rawConnString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "Host=localhost;Database=FinVedaDb;Username=postgres;Password=postgres";
-var connString = rawConnString;
-if (rawConnString.StartsWith("postgresql://") || rawConnString.StartsWith("postgres://"))
+// If env var is missing or still points to Neon (which has channel_binding issues), use Render PostgreSQL
+const string RENDER_PG = "Host=dpg-d9chkoe7r5hc73bdlmtg-a.oregon-postgres.render.com;Database=fintech_db_4tu1;Username=fintech_db_4tu1_user;Password=KDhmX5sVnKjzObdJK4F30u3zuloVtA15;SSL Mode=Require;Trust Server Certificate=true;";
+var rawConnString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "";
+// Use Render PostgreSQL if env var is empty or still points to Neon
+var connString = (string.IsNullOrWhiteSpace(rawConnString) || rawConnString.Contains("neon.tech") || rawConnString.Contains("localhost"))
+    ? RENDER_PG
+    : rawConnString;
+// Strip channel_binding from any URI-format connection string
+if (connString.StartsWith("postgresql://") || connString.StartsWith("postgres://"))
 {
-    // Convert URI format to Npgsql key-value format and remove channel_binding
-    var uri = new Uri(rawConnString.Split('?')[0]);
-    var queryParams = rawConnString.Contains('?') ? rawConnString.Split('?')[1] : "";
+    var uri = new Uri(connString.Split('?')[0]);
+    var queryParams = connString.Contains('?') ? connString.Split('?')[1] : "";
     var filteredParams = string.Join("&", queryParams.Split('&')
         .Where(p => !p.StartsWith("channel_binding", StringComparison.OrdinalIgnoreCase)));
     var userInfo = uri.UserInfo.Split(':');
