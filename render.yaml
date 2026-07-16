@@ -9,7 +9,7 @@ services:
     healthCheckPath: /swagger
     envVars:
       - key: ConnectionStrings__DefaultConnection
-        value: Host=ep-wandering-mud-ada1ui28-pooler.c-2.us-east-1.aws.neon.tech;Database=neondb;Username=neondb_owner;Password=npg_V0lQJDLiq9Eb;SSL Mode=Require;Trust Server Certificate=true;Pooling=true;Maximum Pool Size=5;Connection Idle Lifetime=30;
+        value: Host=dpg-d9chkoe7r5hc73bdlmtg-a.oregon-postgres.render.com;Database=fintech_db_4tu1;Username=fintech_db_4tu1_user;Password=KDhmX5sVnKjzObdJK4F30u3zuloVtA15;SSL Mode=Require;Trust Server Certificate=true;
       - key: ASPNETCORE_ENVIRONMENT
         value: Production
       - key: Jwt__Key
